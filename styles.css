@@ -1,0 +1,102 @@
+@font-face { 
+    font-family: "CantarellRegular"; 
+    src: url('file:///android_asset/fonts/CantarellRegular.ttf'); 
+}
+@font-face { 
+    font-family: "CantarellBold"; 
+    src: url('file:///android_asset/fonts/CantarellBold.ttf'); 
+}
+@font-face { 
+    font-family: "CantarellBoldOblique"; 
+    src: url('file:///android_asset/fonts/CantarellBoldOblique.ttf'); 
+}
+
+
+
+body {
+	background: #FF000000;
+	color: #444444;
+}
+.cuadro {
+	width: 480px;
+	height: 640px;
+	overflow: scroll;
+	background: url('fondo.png');
+}
+.translationHeader, .originalHeader {
+	height: 26px;
+    margin: 40px 5px;
+    margin-bottom: 0;
+    overflow: hidden;
+    padding: 10px;
+}
+.translationHeader {
+	background-color:#333333;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(100%,#333333)) no-repeat scroll 0 0 #545454 ; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #545454 0%,#333333 100%)  no-repeat scroll 0 0 #545454; /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(top,  #545454 0%,#333333 100%)  no-repeat scroll 0 0 #545454; /* W3C */
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+.originalHeader {
+	background-color:#A8DCFF;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+.translationImage, .originalImage {
+	clear: right;
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.translationImage img, .originalImage img {
+	width: 25px;
+}
+.translationTitle, .originalTitle {
+	clear: left;
+	float: left;
+	font-family: 'CantarellBold', Verdana, sans-serif;
+}
+.translationTitle {
+	font-size: 18px;
+	color: #FFFFFF;
+	line-height: 30px;
+}
+.originalTitle {
+	font-size: 16px;
+	color: #555555;
+	line-height: 25px;
+}
+.translation, .original {
+	clear: both;
+	padding:10px;
+	padding-bottom: 10px;
+	margin: 0 5px;
+	text-align: justify;
+	word-wrap: break-word;
+}
+.translation {
+	font-family: 'CantarellBold', Verdana, sans-serif;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border: 3px solid;
+	background: #EEEEEE;
+	color: #000000;
+	font-size: 20px;
+	font-weight: bold;
+	opacity:0.95;
+}
+.original {
+	font-family: 'CantarellRegular', Verdana, sans-serif;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	margin-bottom: 30px;
+	border: 3px solid #A8DCFF;
+	background: #D7E6FF;
+	color: #555555;
+	font-size: 17px;
+	opacity:0.95;
+}
+.unknown {
+	color: red;
+}
