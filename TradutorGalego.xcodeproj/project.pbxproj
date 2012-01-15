@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA1ABBF014C3321200C55CAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBEF14C3321200C55CAE /* UIKit.framework */; };
+		BA1ABBF214C3321200C55CAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF114C3321200C55CAE /* Foundation.framework */; };
+		BA1ABBF414C3321200C55CAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */; };
+		BA1ABBFA14C3321200C55CAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABBF814C3321200C55CAE /* InfoPlist.strings */; };
+		BA1ABBFC14C3321200C55CAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABBFB14C3321200C55CAE /* main.m */; };
+		BA1ABC0014C3321200C55CAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABBFF14C3321200C55CAE /* AppDelegate.m */; };
+		BA1ABC0314C3321200C55CAE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */; };
+		BA1ABC0614C3321200C55CAE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC0414C3321200C55CAE /* MainStoryboard_iPad.storyboard */; };
+		BA1ABC0914C3321200C55CAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC0814C3321200C55CAE /* ViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BA1ABBEB14C3321200C55CAE /* TradutorGalego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradutorGalego.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA1ABBEF14C3321200C55CAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BA1ABBF114C3321200C55CAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BA1ABBF714C3321200C55CAE /* TradutorGalego-Info.plist */ = {isa = PBXFileReference; path = "TradutorGalego-Info.plist"; sourceTree = "<group>"; };
+		BA1ABBF914C3321200C55CAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA1ABBFB14C3321200C55CAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BA1ABBFD14C3321200C55CAE /* TradutorGalego-Prefix.pch */ = {isa = PBXFileReference; path = "TradutorGalego-Prefix.pch"; sourceTree = "<group>"; };
+		BA1ABBFE14C3321200C55CAE /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		BA1ABBFF14C3321200C55CAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BA1ABC0214C3321200C55CAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BA1ABC0514C3321200C55CAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		BA1ABC0714C3321200C55CAE /* ViewController.h */ = {isa = PBXFileReference; path = ViewController.h; sourceTree = "<group>"; };
+		BA1ABC0814C3321200C55CAE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA1ABBE814C3321200C55CAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA1ABBF014C3321200C55CAE /* UIKit.framework in Frameworks */,
+				BA1ABBF214C3321200C55CAE /* Foundation.framework in Frameworks */,
+				BA1ABBF414C3321200C55CAE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA1ABBE014C3321200C55CAE = {
+			isa = PBXGroup;
+			children = (
+				BA1ABBF514C3321200C55CAE /* TradutorGalego */,
+				BA1ABBEE14C3321200C55CAE /* Frameworks */,
+				BA1ABBEC14C3321200C55CAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA1ABBEC14C3321200C55CAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA1ABBEB14C3321200C55CAE /* TradutorGalego.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA1ABBEE14C3321200C55CAE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA1ABBEF14C3321200C55CAE /* UIKit.framework */,
+				BA1ABBF114C3321200C55CAE /* Foundation.framework */,
+				BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA1ABBF514C3321200C55CAE /* TradutorGalego */ = {
+			isa = PBXGroup;
+			children = (
+				BA1ABBFE14C3321200C55CAE /* AppDelegate.h */,
+				BA1ABBFF14C3321200C55CAE /* AppDelegate.m */,
+				BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */,
+				BA1ABC0414C3321200C55CAE /* MainStoryboard_iPad.storyboard */,
+				BA1ABC0714C3321200C55CAE /* ViewController.h */,
+				BA1ABC0814C3321200C55CAE /* ViewController.m */,
+				BA1ABBF614C3321200C55CAE /* Supporting Files */,
+			);
+			path = TradutorGalego;
+			sourceTree = "<group>";
+		};
+		BA1ABBF614C3321200C55CAE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA1ABBF714C3321200C55CAE /* TradutorGalego-Info.plist */,
+				BA1ABBF814C3321200C55CAE /* InfoPlist.strings */,
+				BA1ABBFB14C3321200C55CAE /* main.m */,
+				BA1ABBFD14C3321200C55CAE /* TradutorGalego-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA1ABBEA14C3321200C55CAE /* TradutorGalego */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA1ABC0C14C3321200C55CAE /* Build configuration list for PBXNativeTarget "TradutorGalego" */;
+			buildPhases = (
+				BA1ABBE714C3321200C55CAE /* Sources */,
+				BA1ABBE814C3321200C55CAE /* Frameworks */,
+				BA1ABBE914C3321200C55CAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TradutorGalego;
+			productName = TradutorGalego;
+			productReference = BA1ABBEB14C3321200C55CAE /* TradutorGalego.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA1ABBE214C3321200C55CAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = ninguna;
+			};
+			buildConfigurationList = BA1ABBE514C3321200C55CAE /* Build configuration list for PBXProject "TradutorGalego" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BA1ABBE014C3321200C55CAE;
+			productRefGroup = BA1ABBEC14C3321200C55CAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA1ABBEA14C3321200C55CAE /* TradutorGalego */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA1ABBE914C3321200C55CAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA1ABBFA14C3321200C55CAE /* InfoPlist.strings in Resources */,
+				BA1ABC0314C3321200C55CAE /* MainStoryboard_iPhone.storyboard in Resources */,
+				BA1ABC0614C3321200C55CAE /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA1ABBE714C3321200C55CAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA1ABBFC14C3321200C55CAE /* main.m in Sources */,
+				BA1ABC0014C3321200C55CAE /* AppDelegate.m in Sources */,
+				BA1ABC0914C3321200C55CAE /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BA1ABBF814C3321200C55CAE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA1ABBF914C3321200C55CAE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA1ABC0214C3321200C55CAE /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		BA1ABC0414C3321200C55CAE /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA1ABC0514C3321200C55CAE /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA1ABC0A14C3321200C55CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA1ABC0B14C3321200C55CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA1ABC0D14C3321200C55CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TradutorGalego/TradutorGalego-Prefix.pch";
+				INFOPLIST_FILE = "TradutorGalego/TradutorGalego-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BA1ABC0E14C3321200C55CAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TradutorGalego/TradutorGalego-Prefix.pch";
+				INFOPLIST_FILE = "TradutorGalego/TradutorGalego-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA1ABBE514C3321200C55CAE /* Build configuration list for PBXProject "TradutorGalego" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA1ABC0A14C3321200C55CAE /* Debug */,
+				BA1ABC0B14C3321200C55CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA1ABC0C14C3321200C55CAE /* Build configuration list for PBXNativeTarget "TradutorGalego" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA1ABC0D14C3321200C55CAE /* Debug */,
+				BA1ABC0E14C3321200C55CAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA1ABBE214C3321200C55CAE /* Project object */;
+}
