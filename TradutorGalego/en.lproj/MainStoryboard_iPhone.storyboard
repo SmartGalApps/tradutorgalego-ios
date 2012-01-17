@@ -86,7 +86,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="switchLanguage:" destination="2" eventType="touchUpInside" id="GEa-ri-DSy"/>
+                                            <action selector="switchLanguage:" destination="2" eventType="touchUpInside" id="dpN-Gg-cJm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gli-xs-Dsq">
@@ -104,7 +104,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="selectRightLanguage:" destination="2" eventType="touchUpInside" id="fn9-Ot-Xij"/>
+                                            <action selector="selectRightLanguage:" destination="2" eventType="touchUpInside" id="enc-qB-8cq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -121,8 +121,6 @@
                         <outlet property="switchButton" destination="8Xe-3T-LYf" id="dQu-MQ-33r"/>
                         <outlet property="termTextField" destination="jQ9-jM-qts" id="V5d-Ej-GsT"/>
                         <segue destination="OGL-X3-2NA" kind="push" identifier="Translate" id="pNW-D9-W1N"/>
-                        <segue destination="8xz-vl-qe4" kind="push" identifier="RightLanguage" id="gW2-xf-IHf"/>
-                        <segue destination="8xz-vl-qe4" kind="push" identifier="LeftLanguage" id="Z8K-ww-oba"/>
                     </connections>
                 </viewController>
             </objects>
@@ -221,48 +219,6 @@
             </objects>
             <point key="canvasLocation" x="1435" y="-69"/>
         </scene>
-        <scene sceneID="Sor-oy-yKp">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uuv-RC-6Cl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="8xz-vl-qe4" customClass="SelectLanguageViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="O6x-i9-8S2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" id="JCJ-m2-Qvf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="8xz-vl-qe4" id="NXb-wl-8f4"/>
-                                    <outlet property="delegate" destination="8xz-vl-qe4" id="b4R-e1-yq9"/>
-                                </connections>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sGJ-Og-tJm">
-                                <rect key="frame" x="20" y="238" width="280" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Seleccionar">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="languageSelected:" destination="8xz-vl-qe4" eventType="touchUpInside" id="3pr-PC-fQ4"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Opcións" id="sa1-gF-6F8"/>
-                    <connections>
-                        <outlet property="languagesPicker" destination="JCJ-m2-Qvf" id="dPq-Jc-Qka"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="1027" y="-266"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrows.png" width="25" height="25"/>
@@ -271,43 +227,9 @@
         <image name="fondo.png" width="480" height="640"/>
         <image name="portada.png" width="220" height="220"/>
     </resources>
-    <classes>
-        <class className="SelectLanguageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectLanguageViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="languageSelected:"/>
-                <relationship kind="outlet" name="languagesPicker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="TranslationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TranslationViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="grabURLInBackground:"/>
-                <relationship kind="action" name="searchButton:"/>
-                <relationship kind="action" name="selectLeftLanguage:"/>
-                <relationship kind="action" name="selectRightLanguage:"/>
-                <relationship kind="action" name="switchLanguage:"/>
-                <relationship kind="outlet" name="buttonLeft" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonRight" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="switchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="termTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Z8K-ww-oba"/>
-    </inferredMetricsTieBreakers>
 </document>

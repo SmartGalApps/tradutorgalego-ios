@@ -7,15 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SelectLanguageViewController.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate, SelectLanguageViewControllerDelegate> {
+@interface ViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
     NSString *html;
     NSMutableData* responseData;
     UIAlertView *loadingAlert;
     NSArray *languages;
+    NSString *selected;
 }
 
+@property (nonatomic, retain) NSString* selected;
 @property (nonatomic, retain) NSString* html;
 @property (nonatomic, retain) NSMutableData* responseData;
 @property (nonatomic, retain) NSArray *languages;
@@ -31,6 +32,7 @@
 - (IBAction)switchLanguage:(id)sender;
 - (IBAction)selectRightLanguage:(id)sender;
 - (IBAction)selectLeftLanguage:(id)sender;
+- (void)showLanguageActionSheet;
 
 - (IBAction)grabURLInBackground:(id)sender;
 

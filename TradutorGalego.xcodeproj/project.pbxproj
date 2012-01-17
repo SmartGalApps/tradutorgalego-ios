@@ -48,7 +48,6 @@
 		BA1ABC6714C33C4800C55CAE /* CantarellRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC6214C33C4800C55CAE /* CantarellRegular.ttf */; };
 		BA1ABC6814C33C4800C55CAE /* styles_few_words.css in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC6314C33C4800C55CAE /* styles_few_words.css */; };
 		BA1ABC6914C33C4800C55CAE /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC6414C33C4800C55CAE /* styles.css */; };
-		BA1ABC6C14C3462900C55CAE /* SelectLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC6B14C3462900C55CAE /* SelectLanguageViewController.m */; };
 		BA1ABC7A14C3530400C55CAE /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7914C3530400C55CAE /* CustomView.m */; };
 		BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */; };
 		BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7F14C359EB00C55CAE /* Parser.m */; };
@@ -116,8 +115,6 @@
 		BA1ABC6214C33C4800C55CAE /* CantarellRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CantarellRegular.ttf; sourceTree = "<group>"; };
 		BA1ABC6314C33C4800C55CAE /* styles_few_words.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles_few_words.css; sourceTree = "<group>"; };
 		BA1ABC6414C33C4800C55CAE /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
-		BA1ABC6A14C3462800C55CAE /* SelectLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectLanguageViewController.h; sourceTree = "<group>"; };
-		BA1ABC6B14C3462900C55CAE /* SelectLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectLanguageViewController.m; sourceTree = "<group>"; };
 		BA1ABC7814C3530400C55CAE /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
 		BA1ABC7914C3530400C55CAE /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
 		BA1ABC7B14C3586000C55CAE /* TranslationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslationViewController.h; sourceTree = "<group>"; };
@@ -198,8 +195,6 @@
 				BA1ABC0714C3321200C55CAE /* ViewController.h */,
 				BA1ABC0814C3321200C55CAE /* ViewController.m */,
 				BA1ABBF614C3321200C55CAE /* Supporting Files */,
-				BA1ABC6A14C3462800C55CAE /* SelectLanguageViewController.h */,
-				BA1ABC6B14C3462900C55CAE /* SelectLanguageViewController.m */,
 				BA1ABC7B14C3586000C55CAE /* TranslationViewController.h */,
 				BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */,
 			);
@@ -386,7 +381,6 @@
 				BA1ABC3314C3329300C55CAE /* ASIInputStream.m in Sources */,
 				BA1ABC3414C3329300C55CAE /* ASINetworkQueue.m in Sources */,
 				BA1ABC3514C3329300C55CAE /* Reachability.m in Sources */,
-				BA1ABC6C14C3462900C55CAE /* SelectLanguageViewController.m in Sources */,
 				BA1ABC7A14C3530400C55CAE /* CustomView.m in Sources */,
 				BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */,
 				BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */,
@@ -513,6 +507,7 @@
 				BA1ABC0E14C3321200C55CAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
