@@ -11,10 +11,16 @@
 @interface TranslationViewController : UIViewController {
     NSString *text;
     NSString *html;
+    NSString *originalLanguage;
+    NSString *destinationLanguage;
 }
 
 @property (nonatomic, retain) NSString* text;
 @property (nonatomic, retain) NSString* html;
+@property (nonatomic, retain) NSString* originalLanguage;
+@property (nonatomic, retain) NSString* destinationLanguage;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+-(void) wrapHtml;
 
 @end

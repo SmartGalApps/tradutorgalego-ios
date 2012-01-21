@@ -11,6 +11,8 @@
 @implementation TranslationViewController
 @synthesize html;
 @synthesize text;
+@synthesize originalLanguage;
+@synthesize destinationLanguage;
 @synthesize webView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -39,7 +41,58 @@
 }
 */
 
+-(NSString *) getDrawableName:(NSString *) language
+{
+    if ([language isEqualToString:@"Galego"]) {
+        return @"bandera_small_gl";
+    }
+    else if ([language isEqualToString:@"Español"]) {
+        return @"bandera_small_es";
+    }
+    else if ([language isEqualToString:@"Catalán"]) {
+        return @"bandera_small_cat";
+    }
+    else if ([language isEqualToString:@"Inglés"]) {
+        return @"bandera_small_en";
+    }
+    else {
+        return @"bandera_small_fr";
+    }
+}
 
+-(NSString *) getPreTranslation:(NSString *) language
+{
+    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"translationHeader\"><div class=\"translationTitle\">%@</div><div class=\"translationImage\"><img src=\"%@.png\" ></div></div><div class=\"translation\">", @"Texto traducido", [self getDrawableName:language]];
+    return result;
+}
+
+-(NSString *) getPostTranslation
+{
+    return @"</div>";
+}
+
+-(NSString *) getPreOriginal:(NSString *) language
+{
+    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"originalHeader\"><div class=\"originalTitle\">%@</div><div class=\"originalImage\"><img src=\"%@.png\" ></div></div><div class=\"original\">", @"Texto orixinal", [self getDrawableName:language]];
+    return result;
+}
+
+-(NSString *) getPostOriginal
+{
+    return @"</div>";
+}
+
+-(void) wrapHtml
+{
+    self.html = [self.html stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    self.html = [self.html stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    self.html = [self.html stringByReplacingOccurrencesOfString:@"&iquest;" withString:@""];
+    self.html = [self.html stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
+    self.html = [self.html stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
+    self.html = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@%@%@",@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head><body>",[self getPreTranslation:self.destinationLanguage],self.html,[self getPostTranslation],
+                 [self getPreOriginal:self.originalLanguage],self.text,[self getPostOriginal],@"</body></html>"];
+    NSLog(@"%@", self.html);
+}
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
@@ -48,8 +101,8 @@
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     self.webView.opaque = NO;
     self.webView.backgroundColor = [UIColor clearColor];
+    [self wrapHtml];
     [self.webView loadHTMLString:self.html baseURL:baseURL];
-    NSLog(@"------%@", self.html);
 }
 
 
