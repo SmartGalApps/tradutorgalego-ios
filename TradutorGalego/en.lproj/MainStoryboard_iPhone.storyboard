@@ -208,6 +208,22 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="FrQ-4f-MzI">
+                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Conxugar" id="9kg-Jv-H5Q">
+                                        <connections>
+                                            <action selector="conjugate:" destination="OGL-X3-2NA" id="HRm-lm-dA0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Buscar definición" id="Vx9-fM-2uJ">
+                                        <connections>
+                                            <action selector="define:" destination="OGL-X3-2NA" id="ZBx-6X-cHc"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>

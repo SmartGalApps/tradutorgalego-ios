@@ -93,6 +93,16 @@
                  [self getPreOriginal:self.originalLanguage],self.text,[self getPostOriginal],@"</body></html>"];
     NSLog(@"%@", self.html);
 }
+
+- (IBAction)conjugate:(id)sender {
+    
+}
+
+- (IBAction)define:(id)sender {
+    NSString *urlString = [[NSString alloc] initWithFormat:@"dicio://%@", self.text];
+    NSURL *myURL = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:myURL];
+}
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {

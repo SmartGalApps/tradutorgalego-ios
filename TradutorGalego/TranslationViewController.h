@@ -22,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 -(void) wrapHtml;
+- (IBAction)conjugate:(id)sender;
+- (IBAction)define:(id)sender;
 
 @end
