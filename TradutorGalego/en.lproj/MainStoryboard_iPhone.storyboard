@@ -214,7 +214,7 @@
                                 <items>
                                     <barButtonItem title="Conxugar" id="9kg-Jv-H5Q">
                                         <connections>
-                                            <action selector="conjugate:" destination="OGL-X3-2NA" id="HRm-lm-dA0"/>
+                                            <action selector="conjugate:" destination="OGL-X3-2NA" id="8p5-0Z-Avu"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Buscar definición" id="Vx9-fM-2uJ">
@@ -229,6 +229,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tradución" id="ZDL-9u-hnU"/>
                     <connections>
+                        <outlet property="bottomToolbar" destination="FrQ-4f-MzI" id="d29-0l-yAG"/>
+                        <outlet property="defineButton" destination="Vx9-fM-2uJ" id="1Cn-eR-srV"/>
                         <outlet property="webView" destination="xjh-5U-wgb" id="Pf1-CJ-fM4"/>
                     </connections>
                 </viewController>

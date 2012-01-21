@@ -20,6 +20,8 @@
 @property (nonatomic, retain) NSString* originalLanguage;
 @property (nonatomic, retain) NSString* destinationLanguage;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *defineButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
 
 -(void) wrapHtml;
 - (IBAction)conjugate:(id)sender;

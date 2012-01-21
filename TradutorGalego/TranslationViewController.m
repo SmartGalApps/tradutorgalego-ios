@@ -14,6 +14,8 @@
 @synthesize originalLanguage;
 @synthesize destinationLanguage;
 @synthesize webView;
+@synthesize defineButton;
+@synthesize bottomToolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -95,7 +97,9 @@
 }
 
 - (IBAction)conjugate:(id)sender {
-    
+    NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", self.text];
+    NSURL *myURL = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:myURL];
 }
 
 - (IBAction)define:(id)sender {
@@ -111,6 +115,11 @@
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     self.webView.opaque = NO;
     self.webView.backgroundColor = [UIColor clearColor];
+    if (![self.destinationLanguage isEqualToString:@"Galego"])
+    {
+        [self.defineButton.customView setHidden:YES];
+//        [self bottomToolbar]
+    }
     [self wrapHtml];
     [self.webView loadHTMLString:self.html baseURL:baseURL];
 }
@@ -118,6 +127,8 @@
 
 - (void)viewDidUnload
 {
+    [self setDefineButton:nil];
+    [self setBottomToolbar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
