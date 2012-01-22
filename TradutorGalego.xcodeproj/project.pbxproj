@@ -11,7 +11,6 @@
 		BA1ABBF014C3321200C55CAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBEF14C3321200C55CAE /* UIKit.framework */; };
 		BA1ABBF214C3321200C55CAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF114C3321200C55CAE /* Foundation.framework */; };
 		BA1ABBF414C3321200C55CAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */; };
-		BA1ABBFA14C3321200C55CAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABBF814C3321200C55CAE /* InfoPlist.strings */; };
 		BA1ABBFC14C3321200C55CAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABBFB14C3321200C55CAE /* main.m */; };
 		BA1ABC0014C3321200C55CAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABBFF14C3321200C55CAE /* AppDelegate.m */; };
 		BA1ABC0314C3321200C55CAE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */; };
@@ -52,6 +51,9 @@
 		BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */; };
 		BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7F14C359EB00C55CAE /* Parser.m */; };
 		BABE404314CC64F9006F15C2 /* verbosVolga.txt in Resources */ = {isa = PBXBuildFile; fileRef = BABE404214CC64F9006F15C2 /* verbosVolga.txt */; };
+		BABE406414CC7398006F15C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BABE406214CC7398006F15C2 /* Localizable.strings */; };
+		BABE406614CC73B9006F15C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BABE406214CC7398006F15C2 /* Localizable.strings */; };
+		BABE406814CC73C1006F15C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BABE406214CC7398006F15C2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +64,6 @@
 		BA1ABBF114C3321200C55CAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		BA1ABBF714C3321200C55CAE /* TradutorGalego-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TradutorGalego-Info.plist"; sourceTree = "<group>"; };
-		BA1ABBF914C3321200C55CAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BA1ABBFB14C3321200C55CAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BA1ABBFD14C3321200C55CAE /* TradutorGalego-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TradutorGalego-Prefix.pch"; sourceTree = "<group>"; };
 		BA1ABBFE14C3321200C55CAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -123,6 +124,13 @@
 		BA1ABC7E14C359EB00C55CAE /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		BA1ABC7F14C359EB00C55CAE /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
 		BABE404214CC64F9006F15C2 /* verbosVolga.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbosVolga.txt; sourceTree = "<group>"; };
+		BABE406314CC7398006F15C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BABE406514CC73B9006F15C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BABE406714CC73C1006F15C2 /* gl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gl; path = gl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BABE406914CC744A006F15C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BABE406A14CC744D006F15C2 /* gl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = gl; path = gl.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BABE406B14CC748B006F15C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		BABE406C14CC748B006F15C2 /* gl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = gl; path = gl.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,7 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				BA1ABBF714C3321200C55CAE /* TradutorGalego-Info.plist */,
-				BA1ABBF814C3321200C55CAE /* InfoPlist.strings */,
+				BABE406214CC7398006F15C2 /* Localizable.strings */,
 				BA1ABBFB14C3321200C55CAE /* main.m */,
 				BA1ABBFD14C3321200C55CAE /* TradutorGalego-Prefix.pch */,
 			);
@@ -333,6 +341,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				gl,
+				es,
 			);
 			mainGroup = BA1ABBE014C3321200C55CAE;
 			productRefGroup = BA1ABBEC14C3321200C55CAE /* Products */;
@@ -349,7 +359,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA1ABBFA14C3321200C55CAE /* InfoPlist.strings in Resources */,
 				BA1ABC0314C3321200C55CAE /* MainStoryboard_iPhone.storyboard in Resources */,
 				BA1ABC0614C3321200C55CAE /* MainStoryboard_iPad.storyboard in Resources */,
 				BA1ABC4714C334BA00C55CAE /* fondo.png in Resources */,
@@ -369,6 +378,9 @@
 				BA1ABC6814C33C4800C55CAE /* styles_few_words.css in Resources */,
 				BA1ABC6914C33C4800C55CAE /* styles.css in Resources */,
 				BABE404314CC64F9006F15C2 /* verbosVolga.txt in Resources */,
+				BABE406414CC7398006F15C2 /* Localizable.strings in Resources */,
+				BABE406614CC73B9006F15C2 /* Localizable.strings in Resources */,
+				BABE406814CC73C1006F15C2 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,18 +414,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BA1ABBF814C3321200C55CAE /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA1ABBF914C3321200C55CAE /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BA1ABC0214C3321200C55CAE /* en */,
+				BABE406914CC744A006F15C2 /* es */,
+				BABE406A14CC744D006F15C2 /* gl */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -422,8 +428,20 @@
 			isa = PBXVariantGroup;
 			children = (
 				BA1ABC0514C3321200C55CAE /* en */,
+				BABE406B14CC748B006F15C2 /* es */,
+				BABE406C14CC748B006F15C2 /* gl */,
 			);
 			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		BABE406214CC7398006F15C2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BABE406314CC7398006F15C2 /* en */,
+				BABE406514CC73B9006F15C2 /* es */,
+				BABE406714CC73C1006F15C2 /* gl */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
