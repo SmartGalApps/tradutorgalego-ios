@@ -30,16 +30,16 @@
  */
 -(NSString *) getDrawableName:(NSString *) language
 {
-    if ([language isEqualToString:@"Galego"]) {
+    if ([language isEqualToString:NSLocalizedString(@"Galego", nil)]) {
         return @"bandera_small_gl";
     }
-    else if ([language isEqualToString:@"Español"]) {
+    else if ([language isEqualToString:NSLocalizedString(@"Español", nil)]) {
         return @"bandera_small_es";
     }
-    else if ([language isEqualToString:@"Catalán"]) {
+    else if ([language isEqualToString:NSLocalizedString(@"Catalán", nil)]) {
         return @"bandera_small_cat";
     }
-    else if ([language isEqualToString:@"Inglés"]) {
+    else if ([language isEqualToString:NSLocalizedString(@"Inglés", nil)]) {
         return @"bandera_small_en";
     }
     else {
@@ -52,7 +52,7 @@
  */
 -(NSString *) getPreTranslation:(NSString *) language
 {
-    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"translationHeader\"><div class=\"translationTitle\">%@</div><div class=\"translationImage\"><img src=\"%@.png\" ></div></div><div class=\"translation\">", @"Texto traducido", [self getDrawableName:language]];
+    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"translationHeader\"><div class=\"translationTitle\">%@</div><div class=\"translationImage\"><img src=\"%@.png\" ></div></div><div class=\"translation\">", NSLocalizedString(@"Texto traducido", nil), [self getDrawableName:language]];
     return result;
 }
 
@@ -69,7 +69,7 @@
  */
 -(NSString *) getPreOriginal:(NSString *) language
 {
-    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"originalHeader\"><div class=\"originalTitle\">%@</div><div class=\"originalImage\"><img src=\"%@.png\" ></div></div><div class=\"original\">", @"Texto orixinal", [self getDrawableName:language]];
+    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"originalHeader\"><div class=\"originalTitle\">%@</div><div class=\"originalImage\"><img src=\"%@.png\" ></div></div><div class=\"original\">", NSLocalizedString(@"Texto orixinal", nil), [self getDrawableName:language]];
     return result;
 }
 
@@ -137,7 +137,7 @@
  */
 -(BOOL)showDefine
 {
-    return ([self.destinationLanguage isEqualToString:@"Galego"] &&
+    return ([self.destinationLanguage isEqualToString:NSLocalizedString(@"Galego", nil)] &&
             [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
 }
 
@@ -146,7 +146,7 @@
  */
 -(BOOL)showConjugate
 {
-    return ([self.destinationLanguage isEqualToString:@"Galego"] &&
+    return ([self.destinationLanguage isEqualToString:NSLocalizedString(@"Galego", nil)] &&
             [[[self translatedText] componentsSeparatedByString:@" "] count] == 1 &&
             [Helper existsVerb:self.translatedText]);
 }

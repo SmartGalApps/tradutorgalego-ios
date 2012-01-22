@@ -17,6 +17,7 @@
 @synthesize switchButton;
 @synthesize buttonLeft;
 @synthesize buttonRight;
+@synthesize profileButton;
 @synthesize searchButton;
 @synthesize scrollView;
 @synthesize textTextField;
@@ -48,8 +49,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Comprobar si tiene perfil
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Get the result
+    NSString *profile = [defaults stringForKey:@"tradutorGalegoProfile"];
+    if (profile == nil)
+    {
+        [self showSelectProfile:self];
+    }
+    else
+    {
+        if (![profile isEqualToString:@"galego"])
+        {
+            [self switchLanguage:self];
+        }
+    }
+    
     [self registerForKeyboardNotifications];
-    self.languages = [[NSArray alloc] initWithObjects:@"Español", @"Catalán", @"Inglés", @"Francés", nil];
+    self.languages = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Español", nil), NSLocalizedString(@"Catalán", nil), NSLocalizedString(@"Inglés", nil), NSLocalizedString(@"Francés", nil), nil];
     if (self.textFromIntegration != nil) {
         [self.textTextField setText:self.textFromIntegration];
         [self.searchButton setEnabled:TRUE];
@@ -68,6 +86,7 @@
     [self setTranslationHtml:nil];
     [self setTranslatedRawText:nil];
     [self setTextFromIntegration:nil];
+    [self setProfileButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -137,19 +156,19 @@
 
 - (NSString *) getLanguageCode:(NSString*) language
 {
-    if ([language isEqualToString:@"Galego"]) {
+    if ([language isEqualToString:NSLocalizedString(@"Galego", nil)]) {
         return @"GALICIAN";
     }
-    if ([language isEqualToString:@"Español"]) {
+    if ([language isEqualToString:NSLocalizedString(@"Español", nil)]) {
         return @"SPANISH";
     }
-    if ([language isEqualToString:@"Catalán"]) {
+    if ([language isEqualToString:NSLocalizedString(@"Catalán", nil)]) {
         return @"CATALAN";
     }
-    if ([language isEqualToString:@"Inglés"]) {
+    if ([language isEqualToString:NSLocalizedString(@"Inglés", nil)]) {
         return @"ENGLISH";
     }
-    if ([language isEqualToString:@"Francés"]) {
+    if ([language isEqualToString:NSLocalizedString(@"Francés", nil)]) {
         return @"FRENCH";
     }
     return nil;
@@ -211,6 +230,16 @@
     [self search];
 }
 
+- (IBAction)showSelectProfile:(id)sender {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"E ti, de onde vés sendo?", nil) delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Son galego", nil), NSLocalizedString(@"Son de fóra", nil), nil];
+    [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"bandera_small_gl.png"] forState:UIControlStateNormal];
+    [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:1] setImage:[UIImage imageNamed:@"bandera_small_es.png"] forState:UIControlStateNormal];
+    
+    [popupQuery setTag:1];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:self.view];
+}
+
 
 - (IBAction)switchLanguage:(id)sender {
     UIImage *imageLeft = [self.buttonLeft imageForState:UIControlStateNormal];
@@ -238,41 +267,60 @@
 }
 
 -(IBAction)showActionSheet:(id)sender {
-    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Selecciona" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Español", @"Catalán", @"Ingés", @"Francés", nil];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Selecciona idioma", nil) delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Español", nil), NSLocalizedString(@"Catalán", nil), NSLocalizedString(@"Inglés", nil), NSLocalizedString(@"Francés", nil), nil];
     [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"bandera_small_es.png"] forState:UIControlStateNormal];
     [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:1] setImage:[UIImage imageNamed:@"bandera_small_cat.png"] forState:UIControlStateNormal];
     [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:2] setImage:[UIImage imageNamed:@"bandera_small_en.png"] forState:UIControlStateNormal];
     [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:3] setImage:[UIImage imageNamed:@"bandera_small_fr.png"] forState:UIControlStateNormal];
 
+    [popupQuery setTag:0];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [popupQuery showInView:self.view];
 
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    UIButton *theButton = [self.buttonLeft isEnabled] ? self.buttonLeft : self.buttonRight;
-    NSString *path;
-    NSString *languageName;
-    if (buttonIndex == 0) {
-        path = [[NSString alloc] initWithString:@"bandera_small_es"];
-        languageName = @"Español";
+    if (actionSheet.tag == 0)
+    {
+        UIButton *theButton = [self.buttonLeft isEnabled] ? self.buttonLeft : self.buttonRight;
+        NSString *path;
+        NSString *languageName;
+        if (buttonIndex == 0) {
+            path = [[NSString alloc] initWithString:@"bandera_small_es"];
+            languageName = NSLocalizedString(@"Español", nil);
+        }
+        else if (buttonIndex == 1) {
+            path = [[NSString alloc] initWithString:@"bandera_small_cat"];
+            languageName = NSLocalizedString(@"Catalán", nil);
+        }
+        else if (buttonIndex == 2) {
+            path = [[NSString alloc] initWithString:@"bandera_small_en"];
+            languageName = NSLocalizedString(@"Inglés", nil);
+        }
+        else if (buttonIndex == 3) {
+            path = [[NSString alloc] initWithString:@"bandera_small_fr"];
+            languageName = NSLocalizedString(@"Francés", nil);
+        }
+        NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:path ofType:@"png"];
+        UIImage *flag = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
+        [theButton setImage:flag forState:UIControlStateNormal];
+        [theButton setTitle:languageName forState:UIControlStateNormal];
     }
-    else if (buttonIndex == 1) {
-        path = [[NSString alloc] initWithString:@"bandera_small_cat"];
-        languageName = @"Catalán";
+    else if (actionSheet.tag == 1)
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if (buttonIndex == 0)
+        {
+            [defaults setObject:@"galego" forKey:@"tradutorGalegoProfile"];
+            [defaults synchronize];
+        }
+        else
+        {
+            [defaults setObject:@"defora" forKey:@"tradutorGalegoProfile"];
+            [defaults synchronize];
+            [self switchLanguage:self];
+        }
     }
-    else if (buttonIndex == 2) {
-        path = [[NSString alloc] initWithString:@"bandera_small_en"];
-        languageName = @"Inglés";
-    }
-    else if (buttonIndex == 3) {
-        path = [[NSString alloc] initWithString:@"bandera_small_fr"];
-        languageName = @"Francés";
-    }
-    NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:path ofType:@"png"];
-    UIImage *flag = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
-    [theButton setImage:flag forState:UIControlStateNormal];
-    [theButton setTitle:languageName forState:UIControlStateNormal];
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.

@@ -54,6 +54,11 @@
                                                     <segue destination="r5K-N1-ua9" kind="push" identifier="About" id="cqX-hb-gtp"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem title="Perfil" id="Ycc-1L-KaJ">
+                                                <connections>
+                                                    <action selector="showSelectProfile:" destination="2" id="DDP-OD-xHu"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </items>
                                     </toolbar>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Qn-oJ-cEs">
@@ -116,6 +121,7 @@
                     <connections>
                         <outlet property="buttonLeft" destination="4Qn-oJ-cEs" id="8zE-dq-1aH"/>
                         <outlet property="buttonRight" destination="Gli-xs-Dsq" id="QaT-DZ-H0k"/>
+                        <outlet property="profileButton" destination="Ycc-1L-KaJ" id="iSX-dk-5Ir"/>
                         <outlet property="scrollView" destination="Xgb-5X-M0b" id="7hg-Qj-Hie"/>
                         <outlet property="searchButton" destination="S8Q-du-Bfq" id="wKN-Zl-ClV"/>
                         <outlet property="switchButton" destination="8Xe-3T-LYf" id="dQu-MQ-33r"/>

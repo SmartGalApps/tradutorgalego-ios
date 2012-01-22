@@ -22,11 +22,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonLeft;
 @property (weak, nonatomic) IBOutlet UIButton *switchButton;
 @property (weak, nonatomic) IBOutlet UIButton *buttonRight;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *profileButton;
 
 - (IBAction)switchLanguage:(id)sender;
 - (IBAction)selectRightLanguage:(id)sender;
 - (IBAction)selectLeftLanguage:(id)sender;
 - (IBAction)searchButton:(id)sender;
+- (IBAction)showSelectProfile:(id)sender;
 
 - (IBAction)showActionSheet:(id)sender;
 
