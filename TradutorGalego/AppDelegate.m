@@ -7,14 +7,40 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSString *term = [[url absoluteString] substringFromIndex:10];
+    NSLog(@"%@", term);
+    if (self.viewController == nil)
+    {
+        ViewController *theViewController = [[[[self window] rootViewController] storyboard] instantiateViewControllerWithIdentifier:@"ViewController"];
+        self.viewController = theViewController;
+    }
+    self.viewController.termToTranlsate = term;
+    [self.viewController.termTextField setText:term];
+    [self.viewController.searchButton setEnabled:TRUE];
+    
+    UINavigationController *mainViewNavController = [[UINavigationController alloc] init];
+    
+    if (viewController != nil)
+    {
+        [mainViewNavController pushViewController:viewController animated:FALSE];
+    }
+    
+    [self.window setRootViewController:mainViewNavController];
     return YES;
 }
 							

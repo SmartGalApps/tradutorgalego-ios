@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA10B7CA14CB2C7300DE04CC /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10B7C914CB2C7300DE04CC /* Helper.m */; };
 		BA1ABBF014C3321200C55CAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBEF14C3321200C55CAE /* UIKit.framework */; };
 		BA1ABBF214C3321200C55CAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF114C3321200C55CAE /* Foundation.framework */; };
 		BA1ABBF414C3321200C55CAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */; };
@@ -54,6 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA10B7C814CB2C7300DE04CC /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
+		BA10B7C914CB2C7300DE04CC /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
 		BA1ABBEB14C3321200C55CAE /* TradutorGalego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradutorGalego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1ABBEF14C3321200C55CAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BA1ABBF114C3321200C55CAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +200,8 @@
 				BA1ABBF614C3321200C55CAE /* Supporting Files */,
 				BA1ABC7B14C3586000C55CAE /* TranslationViewController.h */,
 				BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */,
+				BA10B7C814CB2C7300DE04CC /* Helper.h */,
+				BA10B7C914CB2C7300DE04CC /* Helper.m */,
 			);
 			path = TradutorGalego;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				BA1ABC7A14C3530400C55CAE /* CustomView.m in Sources */,
 				BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */,
 				BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */,
+				BA10B7CA14CB2C7300DE04CC /* Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

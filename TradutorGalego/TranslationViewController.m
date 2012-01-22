@@ -10,11 +10,13 @@
 
 @implementation TranslationViewController
 @synthesize html;
-@synthesize text;
+@synthesize originalText;
+@synthesize translatedText;
 @synthesize originalLanguage;
 @synthesize destinationLanguage;
 @synthesize webView;
 @synthesize defineButton;
+@synthesize conjugateButton;
 @synthesize bottomToolbar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -92,20 +94,33 @@
     self.html = [self.html stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
     self.html = [self.html stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
     self.html = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@%@%@",@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head><body>",[self getPreTranslation:self.destinationLanguage],self.html,[self getPostTranslation],
-                 [self getPreOriginal:self.originalLanguage],self.text,[self getPostOriginal],@"</body></html>"];
+                 [self getPreOriginal:self.originalLanguage],self.originalText,[self getPostOriginal],@"</body></html>"];
     NSLog(@"%@", self.html);
 }
 
 - (IBAction)conjugate:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", self.text];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", self.translatedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:myURL];
 }
 
 - (IBAction)define:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"dicio://%@", self.text];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.translatedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:myURL];
+}
+
+
+-(BOOL)showDefine
+{
+    return ([self.destinationLanguage isEqualToString:@"Galego"] &&
+            [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
+}
+
+-(BOOL)showConjugate
+{
+    return ([self.destinationLanguage isEqualToString:@"Galego"] &&
+            [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
 }
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -115,19 +130,31 @@
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     self.webView.opaque = NO;
     self.webView.backgroundColor = [UIColor clearColor];
-    if (![self.destinationLanguage isEqualToString:@"Galego"])
-    {
-        [self.defineButton.customView setHidden:YES];
-//        [self bottomToolbar]
+    NSLog(@"%@", self.translatedText);
+    if ([self showDefine] && [self showConjugate]) {
+        [self.bottomToolbar setHidden:FALSE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.defineButton,self.conjugateButton,nil] animated:TRUE];
+    }
+    else if ([self showDefine]) {
+        [self.bottomToolbar setHidden:FALSE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.defineButton,nil] animated:TRUE];
+    }
+    else if ([self showConjugate]) {
+        [self.bottomToolbar setHidden:FALSE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.conjugateButton,nil] animated:TRUE];
+    }
+    else {
+        [self.bottomToolbar setHidden:TRUE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:nil] animated:TRUE];
     }
     [self wrapHtml];
     [self.webView loadHTMLString:self.html baseURL:baseURL];
 }
 
-
 - (void)viewDidUnload
 {
     [self setDefineButton:nil];
+    [self setConjugateButton:nil];
     [self setBottomToolbar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.

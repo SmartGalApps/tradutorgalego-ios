@@ -12,6 +12,7 @@
 
 @implementation Parser
 
+@synthesize delegate;
 @synthesize text;
 
 -(NSString *) stringByStrippingHTML:(NSString *)s {
@@ -21,23 +22,25 @@
     return s; 
 }
 
--(NSString *)parse:(NSString *) theText {
-    if ([theText rangeOfString:@"Non se atopou o termo."].location != NSNotFound) {
-        return nil;
-    }
+-(void)parse:(NSString *) theText {
     NSError *error = nil;
     HTMLParser *parser = [[HTMLParser alloc] initWithString:theText error:&error];
 
     if (error) {
-        NSLog(@"Error: %@", error);
-        return @"<html><head><body>Error</body></html>";
+        [self.delegate doOnError];
+        return;
     }
     HTMLNode *bodyNode = [parser body];
 
     HTMLNode *iframe = [[bodyNode findChildTags:@"iframe"] objectAtIndex:0];
     NSString * result = [self stringByStrippingHTML:[iframe rawContents]];
     result = [result stringByReplacingOccurrencesOfString:@"unknown" withString:@"\"unknown\""];
-    return result;
+    if ([result length] == 0)
+    {
+        [self.delegate doOnNotFound];
+        return;
+    }
+    [self.delegate doOnSuccess:result translation:[iframe contents]];
 }
 
 @end

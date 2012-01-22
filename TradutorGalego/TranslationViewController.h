@@ -9,18 +9,22 @@
 #import <UIKit/UIKit.h>
 
 @interface TranslationViewController : UIViewController {
-    NSString *text;
+    NSString *originalText;
+    NSString *translatedText;
     NSString *html;
     NSString *originalLanguage;
     NSString *destinationLanguage;
 }
 
-@property (nonatomic, retain) NSString* text;
+@property (nonatomic, retain) NSString* originalText;
+@property (nonatomic, retain) NSString* translatedText;
 @property (nonatomic, retain) NSString* html;
 @property (nonatomic, retain) NSString* originalLanguage;
 @property (nonatomic, retain) NSString* destinationLanguage;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *defineButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *conjugateButton;
+
 @property (weak, nonatomic) IBOutlet UIToolbar *bottomToolbar;
 
 -(void) wrapHtml;

@@ -10,6 +10,7 @@
 #import "TranslationViewController.h"
 #import "ASIFormDataRequest.h"
 #import "Parser.h"
+#import "Helper.h"
 #import "CustomView.h"
 
 @implementation ViewController
@@ -24,6 +25,8 @@
 @synthesize responseData;
 @synthesize html;
 @synthesize selected;
+@synthesize translatedRawText;
+@synthesize termToTranlsate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,6 +41,10 @@
     [super viewDidLoad];
     [self registerForKeyboardNotifications];
     self.languages = [[NSArray alloc] initWithObjects:@"Español", @"Catalán", @"Inglés", @"Francés", nil];
+    if (self.termToTranlsate != nil) {
+        [self.termTextField setText:self.termToTranlsate];
+        [self.searchButton setEnabled:TRUE];
+    }
 }
 
 - (void)viewDidUnload
@@ -103,11 +110,13 @@
 {
 	if ([segue.identifier isEqualToString:@"Translate"])
 	{
-        [self dismissAlert];
+        [Helper dismissAlert];
 		TranslationViewController *translationViewController = 
         segue.destinationViewController;
         translationViewController.html = self.html;
-        translationViewController.text = self.termTextField.text;
+        translationViewController.originalText = self.termTextField.text;
+        translationViewController.translatedText = [self.translatedRawText stringByTrimmingCharactersInSet:
+                                                                           [NSCharacterSet whitespaceAndNewlineCharacterSet]];;
         translationViewController.originalLanguage = [self.buttonLeft titleForState:UIControlStateNormal];
         translationViewController.destinationLanguage = [self.buttonRight titleForState:UIControlStateNormal];
 	}
@@ -115,7 +124,7 @@
 
 - (void)search {
     if ([self.termTextField.text length] != 0) {
-        [self showAlert];
+        [Helper showAlert];
         [self grabURLInBackground:self];
     }
 }
@@ -177,22 +186,6 @@
     [actionSheet setBounds:CGRectMake(0, 0, 320, 500)];
 }
 
-
--(void)showAlert {
-    self.loadingAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Buscando tradución...", nil) 
-                                                   message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
-    [self.loadingAlert show];
-    UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    
-    indicator.center = CGPointMake(self.loadingAlert.bounds.size.width / 2, self.loadingAlert.bounds.size.height - 50);
-    [indicator startAnimating];
-    [self.loadingAlert addSubview:indicator];
-}
-
--(void)dismissAlert {
-    [self.loadingAlert dismissWithClickedButtonIndex:0 animated:YES];
-}
-
 - (void)registerForKeyboardNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -203,27 +196,6 @@
                                              selector:@selector(keyboardWillBeHidden:)
                                                  name:UIKeyboardWillHideNotification object:nil];
     
-}
-
--(void) onSuccess
-{
-    [self dismissAlert];
-    [self performSegueWithIdentifier:@"Translate" sender:self];
-}
-
--(void) onError
-{
-    [self dismissAlert];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
--(void) onNotFound
-{
-    [self dismissAlert];
-    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"Non se atopa tradución", nil), self.termTextField.text];
-    UIAlertView *info = [[UIAlertView alloc] 
-                         initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
-    [info show];
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -385,18 +357,40 @@ numberOfRowsInComponent:(NSInteger)component
     
     Parser *parser = [[Parser alloc] init];
     parser.text = self.termTextField.text;
-    self.html = [parser parse:responseString];
-    if ([self.html length] == 0) {
-        [self onNotFound];
-        return;
-    }
-    
-    [self onSuccess];
+    parser.delegate = self;
+    [parser parse:responseString];
 }
+
+#pragma mark - ParserDelegate
+
+-(void) doOnSuccess:(NSString *)translationHtml translation:(NSString *)translation;
+{
+    self.html = translation;
+    self.translatedRawText = translation;
+    [Helper dismissAlert];
+    [self performSegueWithIdentifier:@"Translate" sender:self];
+}
+
+-(void) doOnError
+{
+    [Helper dismissAlert];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) doOnNotFound
+{
+    [Helper dismissAlert];
+    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"Non se atopa tradución", nil), self.termTextField.text];
+    UIAlertView *info = [[UIAlertView alloc] 
+                         initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
+    [info show];
+}
+
+#pragma end
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    [self onError];
+    [self doOnError];
 }
 
 @end

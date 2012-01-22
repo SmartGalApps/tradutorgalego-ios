@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parser.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate> {
+@interface ViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate,
+ParserDelegate> {
+    NSString *termToTranslate;
     NSString *html;
+    NSString *translatedRawText;
     NSMutableData* responseData;
     UIAlertView *loadingAlert;
     NSArray *languages;
     NSString *selected;
 }
 
+@property (nonatomic, retain) NSString* termToTranlsate;
+@property (nonatomic, retain) NSString* translatedRawText;
 @property (nonatomic, retain) NSString* selected;
 @property (nonatomic, retain) NSString* html;
 @property (nonatomic, retain) NSMutableData* responseData;
