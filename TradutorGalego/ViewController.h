@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Parser.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIActionSheetDelegate,
-ParserDelegate> {
+@interface ViewController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate, ParserDelegate> {
     NSString *termToTranslate;
     NSString *html;
     NSString *translatedRawText;
@@ -39,6 +38,7 @@ ParserDelegate> {
 - (IBAction)selectRightLanguage:(id)sender;
 - (IBAction)selectLeftLanguage:(id)sender;
 - (void)showLanguageActionSheet;
+-(IBAction)showActionSheet:(id)sender;
 
 - (IBAction)grabURLInBackground:(id)sender;
 

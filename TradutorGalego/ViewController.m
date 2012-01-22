@@ -151,40 +151,51 @@
 
 - (IBAction)selectRightLanguage:(id)sender
 {
-    [self showLanguageActionSheet];
+    [self showActionSheet:self];
 }
 
 - (IBAction)selectLeftLanguage:(id)sender
 {
-    [self showLanguageActionSheet];
+    [self showActionSheet:self];
 }
 
-- (void)showLanguageActionSheet
-{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil 
-                                                             delegate:nil
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:nil];
-    
-    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    
-    CGRect pickerFrame = CGRectMake(0, 30, 0, 0);
-    
-    UIPickerView *pickerView = [[UIPickerView alloc] initWithFrame:pickerFrame];
-    pickerView.showsSelectionIndicator = YES;
-    pickerView.dataSource = self;
-    pickerView.delegate = self;
-    
-    [actionSheet addSubview:pickerView];
-    
-    [actionSheet addButtonWithTitle:@"Seleccionar"];
-    actionSheet.delegate = self;
-    
-    [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-    
-    [actionSheet setBounds:CGRectMake(0, 0, 320, 500)];
+-(IBAction)showActionSheet:(id)sender {
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Selecciona" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Español", @"Catalán", @"Ingés", @"Francés", nil];
+    [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:0] setImage:[UIImage imageNamed:@"bandera_small_es.png"] forState:UIControlStateNormal];
+    [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:1] setImage:[UIImage imageNamed:@"bandera_small_cat.png"] forState:UIControlStateNormal];
+    [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:2] setImage:[UIImage imageNamed:@"bandera_small_en.png"] forState:UIControlStateNormal];
+    [[[popupQuery valueForKey:@"_buttons"] objectAtIndex:3] setImage:[UIImage imageNamed:@"bandera_small_fr.png"] forState:UIControlStateNormal];
+
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    [popupQuery showInView:self.view];
+
 }
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    UIButton *theButton = [self.buttonLeft isEnabled] ? self.buttonLeft : self.buttonRight;
+    NSString *path;
+    if (buttonIndex == 0) {
+        path = [[NSString alloc] initWithString:@"bandera_small_es"];
+        self.selected = @"Español";
+    }
+    else if (buttonIndex == 1) {
+        path = [[NSString alloc] initWithString:@"bandera_small_cat"];
+        self.selected = @"Catalán";
+    }
+    else if (buttonIndex == 2) {
+        path = [[NSString alloc] initWithString:@"bandera_small_en"];
+        self.selected = @"Inglés";
+    }
+    else if (buttonIndex == 3) {
+        path = [[NSString alloc] initWithString:@"bandera_small_fr"];
+        self.selected = @"Francés";
+    }
+    NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:path ofType:@"png"];
+    UIImage *flag = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
+    [theButton setImage:flag forState:UIControlStateNormal];
+    [theButton setTitle:self.selected forState:UIControlStateNormal];
+}
+
 
 - (void)registerForKeyboardNotifications
 {
@@ -224,80 +235,6 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     scrollView.contentInset = contentInsets;
     scrollView.scrollIndicatorInsets = contentInsets;
-}
-
-- (NSInteger)numberOfComponentsInPickerView:
-(UIPickerView *)pickerView
-{
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView
-numberOfRowsInComponent:(NSInteger)component
-{
-    return [self.languages count];
-}
-
-- (NSString *)pickerView:(UIPickerView *)pickerView
-             titleForRow:(NSInteger)row
-            forComponent:(NSInteger)component
-{
-    return [self.languages objectAtIndex:row];
-} 
-
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row
-          forComponent:(NSInteger)component reusingView:(UIView *)view
-{
-    CustomView *customView = [[CustomView alloc] init];
-    customView.title = [self.languages objectAtIndex:row];
-    NSString * path;
-    if ([customView.title isEqualToString:@"Español"]) {
-        path = [[NSString alloc] initWithString:@"bandera_small_es"];
-    }
-    else if ([customView.title isEqualToString:@"Catalán"]) {
-        path = [[NSString alloc] initWithString:@"bandera_small_cat"];
-    }
-    else if ([customView.title isEqualToString:@"Inglés"]) {
-        path = [[NSString alloc] initWithString:@"bandera_small_en"];
-    }
-    else if ([customView.title isEqualToString:@"Francés"]) {
-        path = [[NSString alloc] initWithString:@"bandera_small_fr"];
-    }
-    NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:path ofType:@"png"];
-    UIImage *flag = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
-    
-    customView.image = flag;
-    return customView;
-    
-}
-
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row
-      inComponent:(NSInteger)component
-{
-    self.selected = [self.languages objectAtIndex:row];
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if (buttonIndex == 0) {
-		UIButton *theButton = [self.buttonLeft isEnabled] ? self.buttonLeft : self.buttonRight;
-        NSString *path;
-        if ([self.selected isEqualToString:@"Español"]) {
-            path = [[NSString alloc] initWithString:@"bandera_small_es"];
-        }
-        else if ([self.selected isEqualToString:@"Catalán"]) {
-            path = [[NSString alloc] initWithString:@"bandera_small_cat"];
-        }
-        else if ([self.selected isEqualToString:@"Inglés"]) {
-            path = [[NSString alloc] initWithString:@"bandera_small_en"];
-        }
-        else if ([self.selected isEqualToString:@"Francés"]) {
-            path = [[NSString alloc] initWithString:@"bandera_small_fr"];
-        }
-        NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:path ofType:@"png"];
-        UIImage *flag = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
-        [theButton setImage:flag forState:UIControlStateNormal];
-        [theButton setTitle:self.selected forState:UIControlStateNormal];
-	}
 }
 
 - (NSString *) getLanguageCode:(NSString*) language
