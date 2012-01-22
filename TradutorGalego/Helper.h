@@ -13,4 +13,5 @@
 +(void)showAlert;
 +(void)dismissAlert;
 
++(BOOL)existsVerb:(NSString* ) verb;
 @end

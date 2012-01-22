@@ -7,6 +7,7 @@
 //
 
 #import "TranslationViewController.h"
+#import "Helper.h"
 
 @implementation TranslationViewController
 @synthesize translationHtml;
@@ -101,7 +102,16 @@
 - (IBAction)conjugate:(id)sender {
     NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", self.translatedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
-    [[UIApplication sharedApplication] openURL:myURL];
+    if ([[UIApplication sharedApplication] canOpenURL:myURL])
+    {
+        [[UIApplication sharedApplication] openURL:myURL];
+    }
+    else
+    {
+        NSString *appURLString = [[NSString alloc] initWithFormat:@"http://itunes.com/apps/conxugalego"];
+        NSURL *appURL = [NSURL URLWithString:appURLString];
+        [[UIApplication sharedApplication] openURL:appURL];
+    }
 }
 
 /*
@@ -110,7 +120,16 @@
 - (IBAction)define:(id)sender {
     NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.translatedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
-    [[UIApplication sharedApplication] openURL:myURL];
+    if ([[UIApplication sharedApplication] canOpenURL:myURL])
+    {
+        [[UIApplication sharedApplication] openURL:myURL];
+    }
+    else
+    {
+        NSString *appURLString = [[NSString alloc] initWithFormat:@"http://itunes.com/apps/dicionariogalego"];
+        NSURL *appURL = [NSURL URLWithString:appURLString];
+        [[UIApplication sharedApplication] openURL:appURL];
+    }
 }
 
 /*
@@ -128,7 +147,8 @@
 -(BOOL)showConjugate
 {
     return ([self.destinationLanguage isEqualToString:@"Galego"] &&
-            [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
+            [[[self translatedText] componentsSeparatedByString:@" "] count] == 1 &&
+            [Helper existsVerb:self.translatedText]);
 }
 
 #pragma mark - View lifecycle
@@ -140,7 +160,6 @@
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     self.webView.opaque = NO;
     self.webView.backgroundColor = [UIColor clearColor];
-    NSLog(@"%@", self.translatedText);
     if ([self showDefine] && [self showConjugate]) {
         [self.bottomToolbar setHidden:FALSE];
         [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.defineButton,self.conjugateButton,nil] animated:TRUE];

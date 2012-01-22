@@ -217,7 +217,7 @@
                                             <action selector="conjugate:" destination="OGL-X3-2NA" id="8p5-0Z-Avu"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Buscar definición" id="Vx9-fM-2uJ">
+                                    <barButtonItem title="Definir" id="Vx9-fM-2uJ">
                                         <connections>
                                             <action selector="define:" destination="OGL-X3-2NA" id="ZBx-6X-cHc"/>
                                         </connections>

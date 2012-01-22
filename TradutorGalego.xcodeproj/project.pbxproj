@@ -52,6 +52,7 @@
 		BA1ABC7A14C3530400C55CAE /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7914C3530400C55CAE /* CustomView.m */; };
 		BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */; };
 		BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7F14C359EB00C55CAE /* Parser.m */; };
+		BABE404314CC64F9006F15C2 /* verbosVolga.txt in Resources */ = {isa = PBXBuildFile; fileRef = BABE404214CC64F9006F15C2 /* verbosVolga.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationViewController.m; sourceTree = "<group>"; };
 		BA1ABC7E14C359EB00C55CAE /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		BA1ABC7F14C359EB00C55CAE /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		BABE404214CC64F9006F15C2 /* verbosVolga.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbosVolga.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		BA1ABBE014C3321200C55CAE = {
 			isa = PBXGroup;
 			children = (
+				BABE404014CC64EC006F15C2 /* Files */,
 				BA1ABC5E14C33C3600C55CAE /* Assets */,
 				BA1ABC5014C334DB00C55CAE /* logo_ipad.png */,
 				BA1ABC4E14C334CA00C55CAE /* logo_retina.png */,
@@ -292,6 +295,14 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		BABE404014CC64EC006F15C2 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				BABE404214CC64F9006F15C2 /* verbosVolga.txt */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,6 +373,7 @@
 				BA1ABC6714C33C4800C55CAE /* CantarellRegular.ttf in Resources */,
 				BA1ABC6814C33C4800C55CAE /* styles_few_words.css in Resources */,
 				BA1ABC6914C33C4800C55CAE /* styles.css in Resources */,
+				BABE404314CC64F9006F15C2 /* verbosVolga.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
