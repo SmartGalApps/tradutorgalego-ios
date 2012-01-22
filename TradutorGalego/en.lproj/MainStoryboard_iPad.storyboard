@@ -113,6 +113,7 @@
                         <outlet property="searchButton" destination="4Oe-V4-bBA" id="yoQ-CH-pcg"/>
                         <outlet property="switchButton" destination="iei-By-Wgv" id="yur-4a-lLe"/>
                         <outlet property="termTextField" destination="hmd-vx-diY" id="FlG-OM-HJK"/>
+                        <outlet property="textTextField" destination="hmd-vx-diY" id="xpb-fX-a5a"/>
                         <segue destination="xRK-Kw-yeD" kind="push" identifier="Translate" id="8Os-UM-ae3"/>
                     </connections>
                 </viewController>
@@ -239,36 +240,6 @@
         <image name="fondo.png" width="480" height="640"/>
         <image name="portada.png" width="220" height="220"/>
     </resources>
-    <classes>
-        <class className="TranslationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TranslationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="conjugate:"/>
-                <relationship kind="action" name="define:"/>
-                <relationship kind="outlet" name="bottomToolbar" candidateClass="UIToolbar"/>
-                <relationship kind="outlet" name="conjugateButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="defineButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="grabURLInBackground:"/>
-                <relationship kind="action" name="searchButton:"/>
-                <relationship kind="action" name="selectLeftLanguage:"/>
-                <relationship kind="action" name="selectRightLanguage:"/>
-                <relationship kind="action" name="showActionSheet:"/>
-                <relationship kind="action" name="switchLanguage:"/>
-                <relationship kind="outlet" name="buttonLeft" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="buttonRight" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="switchButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="termTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

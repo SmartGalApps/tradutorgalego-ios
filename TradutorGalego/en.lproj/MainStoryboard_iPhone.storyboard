@@ -119,7 +119,7 @@
                         <outlet property="scrollView" destination="Xgb-5X-M0b" id="7hg-Qj-Hie"/>
                         <outlet property="searchButton" destination="S8Q-du-Bfq" id="wKN-Zl-ClV"/>
                         <outlet property="switchButton" destination="8Xe-3T-LYf" id="dQu-MQ-33r"/>
-                        <outlet property="termTextField" destination="jQ9-jM-qts" id="V5d-Ej-GsT"/>
+                        <outlet property="textTextField" destination="jQ9-jM-qts" id="AIF-Tg-PsD"/>
                         <segue destination="OGL-X3-2NA" kind="push" identifier="Translate" id="pNW-D9-W1N"/>
                     </connections>
                 </viewController>

@@ -29,8 +29,8 @@
         ViewController *theViewController = [[[[self window] rootViewController] storyboard] instantiateViewControllerWithIdentifier:@"ViewController"];
         self.viewController = theViewController;
     }
-    self.viewController.termToTranlsate = term;
-    [self.viewController.termTextField setText:term];
+    self.viewController.textFromIntegration = term;
+    [self.viewController.textTextField setText:term];
     [self.viewController.searchButton setEnabled:TRUE];
     
     UINavigationController *mainViewNavController = [[UINavigationController alloc] init];

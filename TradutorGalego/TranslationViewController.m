@@ -9,7 +9,7 @@
 #import "TranslationViewController.h"
 
 @implementation TranslationViewController
-@synthesize html;
+@synthesize translationHtml;
 @synthesize originalText;
 @synthesize translatedText;
 @synthesize originalLanguage;
@@ -19,32 +19,14 @@
 @synthesize conjugateButton;
 @synthesize bottomToolbar;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
 }
-
-#pragma mark - View lifecycle
 
 /*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
+ * Devuelve el nombre de la imagen de la bandera para el idioma pasado
+ */
 -(NSString *) getDrawableName:(NSString *) language
 {
     if ([language isEqualToString:@"Galego"]) {
@@ -64,65 +46,93 @@
     }
 }
 
+/*
+ * Devuelve el html que va antes del texto traducido
+ */
 -(NSString *) getPreTranslation:(NSString *) language
 {
     NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"translationHeader\"><div class=\"translationTitle\">%@</div><div class=\"translationImage\"><img src=\"%@.png\" ></div></div><div class=\"translation\">", @"Texto traducido", [self getDrawableName:language]];
     return result;
 }
 
+/*
+ * Devuelve el html que va después del texto traducido
+ */
 -(NSString *) getPostTranslation
 {
     return @"</div>";
 }
 
+/*
+ * Devuelve el html que va antes del texto original
+ */
 -(NSString *) getPreOriginal:(NSString *) language
 {
     NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"originalHeader\"><div class=\"originalTitle\">%@</div><div class=\"originalImage\"><img src=\"%@.png\" ></div></div><div class=\"original\">", @"Texto orixinal", [self getDrawableName:language]];
     return result;
 }
 
+/*
+ * Devuelve el html que va después del texto original
+ */
 -(NSString *) getPostOriginal
 {
     return @"</div>";
 }
 
+/*
+ * Crea el HTML necesario alrededor de la traducción, del texto original, etc.
+ */
 -(void) wrapHtml
 {
-    self.html = [self.html stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
-    self.html = [self.html stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
-    self.html = [self.html stringByReplacingOccurrencesOfString:@"&iquest;" withString:@""];
-    self.html = [self.html stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
-    self.html = [self.html stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
-    self.html = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@%@%@",@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head><body>",[self getPreTranslation:self.destinationLanguage],self.html,[self getPostTranslation],
+    self.translationHtml = [self.translationHtml stringByReplacingOccurrencesOfString:@"&lt;" withString:@"<"];
+    self.translationHtml = [self.translationHtml stringByReplacingOccurrencesOfString:@"&gt;" withString:@">"];
+    self.translationHtml = [self.translationHtml stringByReplacingOccurrencesOfString:@"&iquest;" withString:@""];
+    self.translationHtml = [self.translationHtml stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
+    self.translationHtml = [self.translationHtml stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
+    self.translationHtml = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@%@%@",@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head><body>",[self getPreTranslation:self.destinationLanguage],self.translationHtml,[self getPostTranslation],
                  [self getPreOriginal:self.originalLanguage],self.originalText,[self getPostOriginal],@"</body></html>"];
-    NSLog(@"%@", self.html);
+    NSLog(@"%@", self.translationHtml);
 }
 
+/*
+ * Botón para integración
+ */
 - (IBAction)conjugate:(id)sender {
     NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", self.translatedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:myURL];
 }
 
+/*
+ * Botón para integración
+ */
 - (IBAction)define:(id)sender {
     NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.translatedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:myURL];
 }
 
-
+/*
+ * Decide si mostrar el botón de definir
+ */
 -(BOOL)showDefine
 {
     return ([self.destinationLanguage isEqualToString:@"Galego"] &&
             [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
 }
 
+/*
+ * Decide si mostrar el botón de conjugar
+ */
 -(BOOL)showConjugate
 {
     return ([self.destinationLanguage isEqualToString:@"Galego"] &&
             [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
 }
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+
+#pragma mark - View lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -148,18 +158,24 @@
         [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:nil] animated:TRUE];
     }
     [self wrapHtml];
-    [self.webView loadHTMLString:self.html baseURL:baseURL];
+    [self.webView loadHTMLString:self.translationHtml baseURL:baseURL];
 }
 
 - (void)viewDidUnload
 {
+    [self setTranslationHtml:nil];
+    [self setOriginalText:nil];
+    [self setTranslatedText:nil];
+    [self setOriginalLanguage:nil];
+    [self setDestinationLanguage:nil];
+    [self setWebView:nil];
     [self setDefineButton:nil];
     [self setConjugateButton:nil];
     [self setBottomToolbar:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
+
+#pragma end
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {

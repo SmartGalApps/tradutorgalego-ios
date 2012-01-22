@@ -11,27 +11,36 @@
 #import "ASIFormDataRequest.h"
 #import "Parser.h"
 #import "Helper.h"
-#import "CustomView.h"
 
 @implementation ViewController
+
 @synthesize switchButton;
+@synthesize buttonLeft;
 @synthesize buttonRight;
 @synthesize searchButton;
 @synthesize scrollView;
-@synthesize buttonLeft;
-@synthesize termTextField;
-@synthesize loadingAlert;
+@synthesize textTextField;
 @synthesize languages;
-@synthesize responseData;
-@synthesize html;
-@synthesize selected;
+@synthesize translationHtml;
 @synthesize translatedRawText;
-@synthesize termToTranlsate;
+@synthesize textFromIntegration;
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+    
 }
 
 #pragma mark - View lifecycle
@@ -41,20 +50,24 @@
     [super viewDidLoad];
     [self registerForKeyboardNotifications];
     self.languages = [[NSArray alloc] initWithObjects:@"Español", @"Catalán", @"Inglés", @"Francés", nil];
-    if (self.termToTranlsate != nil) {
-        [self.termTextField setText:self.termToTranlsate];
+    if (self.textFromIntegration != nil) {
+        [self.textTextField setText:self.textFromIntegration];
         [self.searchButton setEnabled:TRUE];
     }
 }
 
 - (void)viewDidUnload
 {
-    [self setTermTextField:nil];
+    [self setSwitchButton:nil];
+    [self setButtonLeft:nil];
+    [self setButtonRight:nil];
     [self setSearchButton:nil];
     [self setScrollView:nil];
-    [self setButtonLeft:nil];
-    [self setSwitchButton:nil];
-    [self setButtonRight:nil];
+    [self setTextTextField:nil];
+    [self setLanguages:nil];
+    [self setTranslationHtml:nil];
+    [self setTranslatedRawText:nil];
+    [self setTextFromIntegration:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -91,7 +104,7 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    if (theTextField == self.termTextField) {
+    if (theTextField == self.textTextField) {
         [theTextField resignFirstResponder];
     }
     [self search];
@@ -113,8 +126,8 @@
         [Helper dismissAlert];
 		TranslationViewController *translationViewController = 
         segue.destinationViewController;
-        translationViewController.html = self.html;
-        translationViewController.originalText = self.termTextField.text;
+        translationViewController.translationHtml = self.translationHtml;
+        translationViewController.originalText = self.textTextField.text;
         translationViewController.translatedText = [self.translatedRawText stringByTrimmingCharactersInSet:
                                                                            [NSCharacterSet whitespaceAndNewlineCharacterSet]];;
         translationViewController.originalLanguage = [self.buttonLeft titleForState:UIControlStateNormal];
@@ -122,8 +135,73 @@
 	}
 }
 
+- (NSString *) getLanguageCode:(NSString*) language
+{
+    if ([language isEqualToString:@"Galego"]) {
+        return @"GALICIAN";
+    }
+    if ([language isEqualToString:@"Español"]) {
+        return @"SPANISH";
+    }
+    if ([language isEqualToString:@"Catalán"]) {
+        return @"CATALAN";
+    }
+    if ([language isEqualToString:@"Inglés"]) {
+        return @"ENGLISH";
+    }
+    if ([language isEqualToString:@"Francés"]) {
+        return @"FRENCH";
+    }
+    return nil;
+}
+
+- (NSString *) getTranslationDirectionFrom:(NSString*) left to: (NSString *)right
+{
+    NSMutableString *result = [[NSMutableString alloc] initWithString: [self getLanguageCode:left]];
+    [result appendString:@"-"];
+    [result appendString:[self getLanguageCode:right]];
+    return result;
+}
+
+- (IBAction)grabURLInBackground:(id)sender
+{
+    NSMutableString *urlString = [NSMutableString string];
+    [urlString appendString:@"http://www.xunta.es/tradutor/text.do?"];
+    NSString *translationDirection = [self getTranslationDirectionFrom:[self.buttonLeft titleForState:UIControlStateNormal] to:[self.buttonRight titleForState:UIControlStateNormal]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setPostValue:translationDirection forKey:@"translationDirection"];
+    [request setPostValue:self.textTextField.text forKey:@"text"];
+    [request setPostValue:@"(GV)" forKey:@"subjectArea"];
+    
+    if ([translationDirection rangeOfString:@"FRENCH"].location != NSNotFound ||
+        [translationDirection rangeOfString:@"CATALAN"].location != NSNotFound)
+    {
+        [request setPostValue:@"SPANISH" forKey:@"DTS_PIVOT_LANGUAGE"];    
+    }
+    [request setDelegate:self];
+    [request startAsynchronous];
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    // Use when fetching text data
+    NSString *responseString = [request responseString];
+    
+    Parser *parser = [[Parser alloc] init];
+    parser.text = self.textTextField.text;
+    parser.delegate = self;
+    [parser parse:responseString];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    [self doOnError];
+}
 - (void)search {
-    if ([self.termTextField.text length] != 0) {
+    if ([self.textTextField.text length] != 0) {
         [Helper showAlert];
         [self grabURLInBackground:self];
     }
@@ -174,39 +252,27 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     UIButton *theButton = [self.buttonLeft isEnabled] ? self.buttonLeft : self.buttonRight;
     NSString *path;
+    NSString *languageName;
     if (buttonIndex == 0) {
         path = [[NSString alloc] initWithString:@"bandera_small_es"];
-        self.selected = @"Español";
+        languageName = @"Español";
     }
     else if (buttonIndex == 1) {
         path = [[NSString alloc] initWithString:@"bandera_small_cat"];
-        self.selected = @"Catalán";
+        languageName = @"Catalán";
     }
     else if (buttonIndex == 2) {
         path = [[NSString alloc] initWithString:@"bandera_small_en"];
-        self.selected = @"Inglés";
+        languageName = @"Inglés";
     }
     else if (buttonIndex == 3) {
         path = [[NSString alloc] initWithString:@"bandera_small_fr"];
-        self.selected = @"Francés";
+        languageName = @"Francés";
     }
     NSString* pathToImageFile = [[NSBundle mainBundle] pathForResource:path ofType:@"png"];
     UIImage *flag = [[UIImage alloc] initWithContentsOfFile:pathToImageFile];
     [theButton setImage:flag forState:UIControlStateNormal];
-    [theButton setTitle:self.selected forState:UIControlStateNormal];
-}
-
-
-- (void)registerForKeyboardNotifications
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillBeHidden:)
-                                                 name:UIKeyboardWillHideNotification object:nil];
-    
+    [theButton setTitle:languageName forState:UIControlStateNormal];
 }
 
 // Called when the UIKeyboardDidShowNotification is sent.
@@ -223,8 +289,8 @@
     // Your application might not need or want this behavior.
     CGRect aRect = self.view.frame;
     aRect.size.height -= kbSize.height;
-    if (!CGRectContainsPoint(aRect, self.termTextField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.termTextField.frame.origin.y-kbSize.height);
+    if (!CGRectContainsPoint(aRect, self.textTextField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.textTextField.frame.origin.y-kbSize.height);
         [scrollView setContentOffset:scrollPoint animated:YES];
     }
 }
@@ -237,72 +303,11 @@
     scrollView.scrollIndicatorInsets = contentInsets;
 }
 
-- (NSString *) getLanguageCode:(NSString*) language
-{
-    if ([language isEqualToString:@"Galego"]) {
-        return @"GALICIAN";
-    }
-    if ([language isEqualToString:@"Español"]) {
-        return @"SPANISH";
-    }
-    if ([language isEqualToString:@"Catalán"]) {
-        return @"CATALAN";
-    }
-    if ([language isEqualToString:@"Inglés"]) {
-        return @"ENGLISH";
-    }
-    if ([language isEqualToString:@"Francés"]) {
-        return @"FRENCH";
-    }
-    return nil;
-}
-
-- (NSString *) getTranslationDirectionFrom:(NSString*) left to: (NSString *)right
-{
-    NSMutableString *result = [[NSMutableString alloc] initWithString: [self getLanguageCode:left]];
-    [result appendString:@"-"];
-    [result appendString:[self getLanguageCode:right]];
-    return result;
-}
-
-- (IBAction)grabURLInBackground:(id)sender
-{
-    NSMutableString *urlString = [NSMutableString string];
-    [urlString appendString:@"http://www.xunta.es/tradutor/text.do?"];
-    NSString *translationDirection = [self getTranslationDirectionFrom:[self.buttonLeft titleForState:UIControlStateNormal] to:[self.buttonRight titleForState:UIControlStateNormal]];
-
-    NSURL *url = [NSURL URLWithString:urlString];
-    
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setPostValue:translationDirection forKey:@"translationDirection"];
-    [request setPostValue:self.termTextField.text forKey:@"text"];
-    [request setPostValue:@"(GV)" forKey:@"subjectArea"];
-    
-    if ([translationDirection rangeOfString:@"FRENCH"].location != NSNotFound ||
-        [translationDirection rangeOfString:@"CATALAN"].location != NSNotFound)
-    {
-        [request setPostValue:@"SPANISH" forKey:@"DTS_PIVOT_LANGUAGE"];    
-    }
-    [request setDelegate:self];
-    [request startAsynchronous];
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-    // Use when fetching text data
-    NSString *responseString = [request responseString];
-    
-    Parser *parser = [[Parser alloc] init];
-    parser.text = self.termTextField.text;
-    parser.delegate = self;
-    [parser parse:responseString];
-}
-
 #pragma mark - ParserDelegate
 
 -(void) doOnSuccess:(NSString *)translationHtml translation:(NSString *)translation;
 {
-    self.html = translation;
+    self.translationHtml = translation;
     self.translatedRawText = translation;
     [Helper dismissAlert];
     [self performSegueWithIdentifier:@"Translate" sender:self];
@@ -317,17 +322,12 @@
 -(void) doOnNotFound
 {
     [Helper dismissAlert];
-    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"Non se atopa tradución", nil), self.termTextField.text];
+    NSMutableString *message = [[NSMutableString alloc] initWithFormat:NSLocalizedString(@"Non se atopa tradución", nil), self.textTextField.text];
     UIAlertView *info = [[UIAlertView alloc] 
                          initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", nil) otherButtonTitles: nil];
     [info show];
 }
 
 #pragma end
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-    [self doOnError];
-}
 
 @end
