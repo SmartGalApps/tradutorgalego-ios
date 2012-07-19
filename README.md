@@ -1,0 +1,4 @@
+tradutorgalego-ios
+==================
+
+TradutorGalego iOS
