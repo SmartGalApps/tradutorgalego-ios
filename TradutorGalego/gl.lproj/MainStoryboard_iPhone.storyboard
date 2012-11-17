@@ -50,12 +50,12 @@
                                         <rect key="frame" x="0.0" y="419" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <items>
-                                            <barButtonItem title="About" id="1vf-hZ-Rz5">
+                                            <barButtonItem title="Acerca de" id="1vf-hZ-Rz5">
                                                 <connections>
                                                     <segue destination="r5K-N1-ua9" kind="push" identifier="About" id="cqX-hb-gtp"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem title="Profile" id="Ycc-1L-KaJ">
+                                            <barButtonItem title="Perfil" id="Ycc-1L-KaJ">
                                                 <connections>
                                                     <action selector="showSelectProfile:" destination="2" id="DDP-OD-xHu"/>
                                                 </connections>
@@ -69,7 +69,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Galician" image="bandera_small_gl.png">
+                                        <state key="normal" title="Galego" image="bandera_small_gl.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -102,7 +102,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Spanish" image="bandera_small_es.png">
+                                        <state key="normal" title="Español" image="bandera_small_es.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -149,7 +149,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Application developed by" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ySb-Mu-bxI">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aplicación desenvolvida por" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="ySb-Mu-bxI">
                                 <rect key="frame" x="30" y="123" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -167,7 +167,7 @@
                                 <rect key="frame" x="30" y="23" width="69" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This application obtains all translations from the translator available at http://www.xunta.es/tradutor/text.do" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" adjustsFontSizeToFit="NO" minimumFontSize="10" id="0uW-4o-Muy">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esta aplicación obtén todas as traducións do tradutor dispoñible en http://www.xunta.es/tradutor/text.do" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" adjustsFontSizeToFit="NO" minimumFontSize="10" id="0uW-4o-Muy">
                                 <rect key="frame" x="-30" y="365" width="380" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -178,7 +178,7 @@
                                 <rect key="frame" x="45" y="190" width="250" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ALL THE GALICIAN LANGUAGE IN YOUR POCKET" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="hSE-a0-vwd">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TODA A LINGUA GALEGA NO TEU PETO" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="hSE-a0-vwd">
                                 <rect key="frame" x="3" y="254" width="315" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -188,7 +188,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.15402600359999999" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="About" id="RK3-fx-TNu"/>
+                    <navigationItem key="navigationItem" title="Acerca de" id="RK3-fx-TNu"/>
                     <connections>
                         <outlet property="appName" destination="05o-dd-9qi" id="deb-zR-MWR"/>
                         <outlet property="attribution" destination="0uW-4o-Muy" id="vTb-fd-Ira"/>
@@ -257,7 +257,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Translation" id="ZDL-9u-hnU"/>
+                    <navigationItem key="navigationItem" title="Tradución" id="ZDL-9u-hnU"/>
                     <connections>
                         <outlet property="bottomToolbar" destination="FrQ-4f-MzI" id="d29-0l-yAG"/>
                         <outlet property="conjugateButton" destination="q0I-Dk-l5a" id="VSZ-vh-j1p"/>

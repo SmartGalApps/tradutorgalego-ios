@@ -14,7 +14,7 @@ static UIAlertView * loadingAlert;
 
 +(void)showAlert
 {
-    loadingAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Traducindo texto...", nil) 
+    loadingAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Translating text...", nil) 
                                               message:nil delegate:self cancelButtonTitle:nil otherButtonTitles: nil];
     [loadingAlert show];
     UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -44,7 +44,7 @@ static UIAlertView * loadingAlert;
      [NSCharacterSet newlineCharacterSet]];
     for (NSString* line in lines)
     {
-        if ([line isEqualToString:verb])
+        if ([line caseInsensitiveCompare:verb] == NSOrderedSame)
         {
             return TRUE;
         }

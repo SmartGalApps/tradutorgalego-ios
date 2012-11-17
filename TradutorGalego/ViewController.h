@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *switchButton;
 @property (weak, nonatomic) IBOutlet UIButton *buttonRight;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *profileButton;
+@property (weak, nonatomic) IBOutlet UIImageView *logoPortada;
 
 - (IBAction)switchLanguage:(id)sender;
 - (IBAction)selectRightLanguage:(id)sender;

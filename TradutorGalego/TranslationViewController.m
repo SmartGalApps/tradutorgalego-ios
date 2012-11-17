@@ -19,6 +19,8 @@
 @synthesize defineButton;
 @synthesize conjugateButton;
 @synthesize bottomToolbar;
+@synthesize space1;
+@synthesize space2;
 
 - (void)didReceiveMemoryWarning
 {
@@ -30,16 +32,16 @@
  */
 -(NSString *) getDrawableName:(NSString *) language
 {
-    if ([language isEqualToString:NSLocalizedString(@"Galego", nil)]) {
+    if ([language isEqualToString:NSLocalizedString(@"Galician", nil)]) {
         return @"bandera_small_gl";
     }
-    else if ([language isEqualToString:NSLocalizedString(@"Español", nil)]) {
+    else if ([language isEqualToString:NSLocalizedString(@"Spanish", nil)]) {
         return @"bandera_small_es";
     }
-    else if ([language isEqualToString:NSLocalizedString(@"Catalán", nil)]) {
+    else if ([language isEqualToString:NSLocalizedString(@"Catalan", nil)]) {
         return @"bandera_small_cat";
     }
-    else if ([language isEqualToString:NSLocalizedString(@"Inglés", nil)]) {
+    else if ([language isEqualToString:NSLocalizedString(@"English", nil)]) {
         return @"bandera_small_en";
     }
     else {
@@ -52,7 +54,7 @@
  */
 -(NSString *) getPreTranslation:(NSString *) language
 {
-    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"translationHeader\"><div class=\"translationTitle\">%@</div><div class=\"translationImage\"><img src=\"%@.png\" ></div></div><div class=\"translation\">", NSLocalizedString(@"Texto traducido", nil), [self getDrawableName:language]];
+    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"translationHeader\"><div class=\"translationTitle\">%@</div><div class=\"translationImage\"><img src=\"%@.png\" ></div></div><div class=\"translation\">", NSLocalizedString(@"Translated text", nil), [self getDrawableName:language]];
     return result;
 }
 
@@ -69,7 +71,7 @@
  */
 -(NSString *) getPreOriginal:(NSString *) language
 {
-    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"originalHeader\"><div class=\"originalTitle\">%@</div><div class=\"originalImage\"><img src=\"%@.png\" ></div></div><div class=\"original\">", NSLocalizedString(@"Texto orixinal", nil), [self getDrawableName:language]];
+    NSString *result = [[NSString alloc] initWithFormat:@"<div class=\"originalHeader\"><div class=\"originalTitle\">%@</div><div class=\"originalImage\"><img src=\"%@.png\" ></div></div><div class=\"original\">", NSLocalizedString(@"Original text", nil), [self getDrawableName:language]];
     return result;
 }
 
@@ -93,14 +95,14 @@
     self.translationHtml = [self.translationHtml stringByReplacingOccurrencesOfString:@"&Acirc;&iexcl;" withString:@"¡"];
     self.translationHtml = [[NSString alloc] initWithFormat:@"%@%@%@%@%@%@%@%@",@"<html><head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head><body>",[self getPreTranslation:self.destinationLanguage],self.translationHtml,[self getPostTranslation],
                  [self getPreOriginal:self.originalLanguage],self.originalText,[self getPostOriginal],@"</body></html>"];
-    NSLog(@"%@", self.translationHtml);
 }
 
 /*
  * Botón para integración
  */
 - (IBAction)conjugate:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", self.translatedText];
+    NSString* encodedText = [translatedText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"conxuga://%@", encodedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     if ([[UIApplication sharedApplication] canOpenURL:myURL])
     {
@@ -118,7 +120,8 @@
  * Botón para integración
  */
 - (IBAction)define:(id)sender {
-    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", self.translatedText];
+    NSString* encodedText = [translatedText stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"define://%@", encodedText];
     NSURL *myURL = [NSURL URLWithString:urlString];
     if ([[UIApplication sharedApplication] canOpenURL:myURL])
     {
@@ -137,7 +140,7 @@
  */
 -(BOOL)showDefine
 {
-    return ([self.destinationLanguage isEqualToString:NSLocalizedString(@"Galego", nil)] &&
+    return ([self.destinationLanguage isEqualToString:NSLocalizedString(@"Galician", nil)] &&
             [[[self translatedText] componentsSeparatedByString:@" "] count] == 1);
 }
 
@@ -146,7 +149,7 @@
  */
 -(BOOL)showConjugate
 {
-    return ([self.destinationLanguage isEqualToString:NSLocalizedString(@"Galego", nil)] &&
+    return ([self.destinationLanguage isEqualToString:NSLocalizedString(@"Galician", nil)] &&
             [[[self translatedText] componentsSeparatedByString:@" "] count] == 1 &&
             [Helper existsVerb:self.translatedText]);
 }
@@ -162,15 +165,15 @@
     self.webView.backgroundColor = [UIColor clearColor];
     if ([self showDefine] && [self showConjugate]) {
         [self.bottomToolbar setHidden:FALSE];
-        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.defineButton,self.conjugateButton,nil] animated:TRUE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.space1, self.defineButton,self.conjugateButton,self.space1, nil] animated:TRUE];
     }
     else if ([self showDefine]) {
         [self.bottomToolbar setHidden:FALSE];
-        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.defineButton,nil] animated:TRUE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.space1, self.defineButton,self.space1, nil] animated:TRUE];
     }
     else if ([self showConjugate]) {
         [self.bottomToolbar setHidden:FALSE];
-        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.conjugateButton,nil] animated:TRUE];
+        [self.bottomToolbar setItems:[[NSArray alloc] initWithObjects:self.space1, self.conjugateButton,self.space1, nil] animated:TRUE];
     }
     else {
         [self.bottomToolbar setHidden:TRUE];
@@ -191,15 +194,26 @@
     [self setDefineButton:nil];
     [self setConjugateButton:nil];
     [self setBottomToolbar:nil];
+    [self setSpace1:nil];
+    [self setSpace2:nil];
     [super viewDidUnload];
 }
 
 #pragma end
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        // Return YES for supported orientations
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    }
+    else
+    {
+        // Return YES for supported orientations
+        return YES;
+    }
 }
 
 @end

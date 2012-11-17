@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA0854BD14DEFF2C001D857E /* GalApps_iOS_logosimbolo.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0854BC14DEFF2C001D857E /* GalApps_iOS_logosimbolo.png */; };
+		BA0854C014DF012A001D857E /* btn_ConxuGalego.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0854BE14DF012A001D857E /* btn_ConxuGalego.png */; };
+		BA0854C114DF012A001D857E /* btn_DicionarioGalego.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0854BF14DF012A001D857E /* btn_DicionarioGalego.png */; };
+		BA0854C714DF05DC001D857E /* lupa.png in Resources */ = {isa = PBXBuildFile; fileRef = BA0854C614DF05DC001D857E /* lupa.png */; };
 		BA10B7CA14CB2C7300DE04CC /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA10B7C914CB2C7300DE04CC /* Helper.m */; };
+		BA138EA614DF0BC400181A70 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA138EA814DF0BC400181A70 /* MainStoryboard_iPhone.storyboard */; };
+		BA138EAC14DF0BD900181A70 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA138EAE14DF0BD900181A70 /* MainStoryboard_iPad.storyboard */; };
 		BA1ABBF014C3321200C55CAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBEF14C3321200C55CAE /* UIKit.framework */; };
 		BA1ABBF214C3321200C55CAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF114C3321200C55CAE /* Foundation.framework */; };
 		BA1ABBF414C3321200C55CAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA1ABBF314C3321200C55CAE /* CoreGraphics.framework */; };
 		BA1ABBFC14C3321200C55CAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABBFB14C3321200C55CAE /* main.m */; };
 		BA1ABC0014C3321200C55CAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABBFF14C3321200C55CAE /* AppDelegate.m */; };
-		BA1ABC0314C3321200C55CAE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */; };
-		BA1ABC0614C3321200C55CAE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC0414C3321200C55CAE /* MainStoryboard_iPad.storyboard */; };
-		BA1ABC0914C3321200C55CAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC0814C3321200C55CAE /* ViewController.m */; };
 		BA1ABC1414C3327400C55CAE /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC1114C3327400C55CAE /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BA1ABC1514C3327400C55CAE /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC1314C3327400C55CAE /* HTMLParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BA1ABC2D14C3329300C55CAE /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC1814C3329300C55CAE /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -50,15 +53,26 @@
 		BA1ABC6914C33C4800C55CAE /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = BA1ABC6414C33C4800C55CAE /* styles.css */; };
 		BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */; };
 		BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA1ABC7F14C359EB00C55CAE /* Parser.m */; };
+		BA45DC5214D9A08C0014D316 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA45DC5114D9A08B0014D316 /* AboutViewController.m */; };
+		BA80146714DDA25900F5E229 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA80146514DDA25900F5E229 /* Localizable.strings */; };
+		BA98CE4116578A4300F40FB1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BA98CE4016578A4300F40FB1 /* Default-568h@2x.png */; };
+		BAAD29A814D9AC8700CCEC99 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAD29A914D9AC8700CCEC99 /* ViewController.m */; };
 		BABE404314CC64F9006F15C2 /* verbosVolga.txt in Resources */ = {isa = PBXBuildFile; fileRef = BABE404214CC64F9006F15C2 /* verbosVolga.txt */; };
-		BABE406414CC7398006F15C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BABE406214CC7398006F15C2 /* Localizable.strings */; };
-		BABE406614CC73B9006F15C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BABE406214CC7398006F15C2 /* Localizable.strings */; };
-		BABE406814CC73C1006F15C2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BABE406214CC7398006F15C2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA0854BC14DEFF2C001D857E /* GalApps_iOS_logosimbolo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GalApps_iOS_logosimbolo.png; sourceTree = "<group>"; };
+		BA0854BE14DF012A001D857E /* btn_ConxuGalego.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_ConxuGalego.png; sourceTree = "<group>"; };
+		BA0854BF14DF012A001D857E /* btn_DicionarioGalego.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_DicionarioGalego.png; sourceTree = "<group>"; };
+		BA0854C614DF05DC001D857E /* lupa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lupa.png; sourceTree = "<group>"; };
 		BA10B7C814CB2C7300DE04CC /* Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		BA10B7C914CB2C7300DE04CC /* Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
+		BA138EA714DF0BC400181A70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BA138EAA14DF0BCE00181A70 /* gl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = gl; path = gl.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BA138EAB14DF0BCE00181A70 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		BA138EAD14DF0BD900181A70 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		BA138EAF14DF0BDF00181A70 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		BA138EB014DF0BDF00181A70 /* gl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = gl; path = gl.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		BA1ABBEB14C3321200C55CAE /* TradutorGalego.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradutorGalego.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1ABBEF14C3321200C55CAE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BA1ABBF114C3321200C55CAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,10 +82,7 @@
 		BA1ABBFD14C3321200C55CAE /* TradutorGalego-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TradutorGalego-Prefix.pch"; sourceTree = "<group>"; };
 		BA1ABBFE14C3321200C55CAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BA1ABBFF14C3321200C55CAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BA1ABC0214C3321200C55CAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		BA1ABC0514C3321200C55CAE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		BA1ABC0714C3321200C55CAE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BA1ABC0814C3321200C55CAE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BA1ABC1014C3327400C55CAE /* HTMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLNode.h; sourceTree = "<group>"; };
 		BA1ABC1114C3327400C55CAE /* HTMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLNode.m; sourceTree = "<group>"; };
 		BA1ABC1214C3327400C55CAE /* HTMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLParser.h; sourceTree = "<group>"; };
@@ -123,14 +134,14 @@
 		BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslationViewController.m; sourceTree = "<group>"; };
 		BA1ABC7E14C359EB00C55CAE /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
 		BA1ABC7F14C359EB00C55CAE /* Parser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parser.m; sourceTree = "<group>"; };
+		BA45DC5014D9A08B0014D316 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		BA45DC5114D9A08B0014D316 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		BA80146614DDA25900F5E229 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BA80146C14DDA7E400F5E229 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BA80147014DDB2A000F5E229 /* gl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gl; path = gl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BA98CE4016578A4300F40FB1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BAAD29A914D9AC8700CCEC99 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BABE404214CC64F9006F15C2 /* verbosVolga.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbosVolga.txt; sourceTree = "<group>"; };
-		BABE406314CC7398006F15C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BABE406514CC73B9006F15C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BABE406714CC73C1006F15C2 /* gl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = gl; path = gl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BABE406914CC744A006F15C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		BABE406A14CC744D006F15C2 /* gl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = gl; path = gl.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		BABE406B14CC748B006F15C2 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = es; path = es.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		BABE406C14CC748B006F15C2 /* gl */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = gl; path = gl.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +166,8 @@
 		BA1ABBE014C3321200C55CAE = {
 			isa = PBXGroup;
 			children = (
+				BA98CE4016578A4300F40FB1 /* Default-568h@2x.png */,
+				BA80147314DE8B9800F5E229 /* Reachability */,
 				BABE404014CC64EC006F15C2 /* Files */,
 				BA1ABC5E14C33C3600C55CAE /* Assets */,
 				BA1ABC5014C334DB00C55CAE /* logo_ipad.png */,
@@ -195,19 +208,21 @@
 		BA1ABBF514C3321200C55CAE /* TradutorGalego */ = {
 			isa = PBXGroup;
 			children = (
+				BA1ABBF614C3321200C55CAE /* Supporting Files */,
 				BA1ABC7E14C359EB00C55CAE /* Parser.h */,
 				BA1ABC7F14C359EB00C55CAE /* Parser.m */,
 				BA1ABBFE14C3321200C55CAE /* AppDelegate.h */,
 				BA1ABBFF14C3321200C55CAE /* AppDelegate.m */,
-				BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */,
-				BA1ABC0414C3321200C55CAE /* MainStoryboard_iPad.storyboard */,
+				BA138EA814DF0BC400181A70 /* MainStoryboard_iPhone.storyboard */,
+				BA138EAE14DF0BD900181A70 /* MainStoryboard_iPad.storyboard */,
 				BA1ABC0714C3321200C55CAE /* ViewController.h */,
-				BA1ABC0814C3321200C55CAE /* ViewController.m */,
-				BA1ABBF614C3321200C55CAE /* Supporting Files */,
+				BAAD29A914D9AC8700CCEC99 /* ViewController.m */,
 				BA1ABC7B14C3586000C55CAE /* TranslationViewController.h */,
 				BA1ABC7C14C3586000C55CAE /* TranslationViewController.m */,
 				BA10B7C814CB2C7300DE04CC /* Helper.h */,
 				BA10B7C914CB2C7300DE04CC /* Helper.m */,
+				BA45DC5014D9A08B0014D316 /* AboutViewController.h */,
+				BA45DC5114D9A08B0014D316 /* AboutViewController.m */,
 			);
 			path = TradutorGalego;
 			sourceTree = "<group>";
@@ -215,8 +230,8 @@
 		BA1ABBF614C3321200C55CAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BA80146514DDA25900F5E229 /* Localizable.strings */,
 				BA1ABBF714C3321200C55CAE /* TradutorGalego-Info.plist */,
-				BABE406214CC7398006F15C2 /* Localizable.strings */,
 				BA1ABBFB14C3321200C55CAE /* main.m */,
 				BA1ABBFD14C3321200C55CAE /* TradutorGalego-Prefix.pch */,
 			);
@@ -266,6 +281,10 @@
 		BA1ABC4114C334BA00C55CAE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BA0854C614DF05DC001D857E /* lupa.png */,
+				BA0854BE14DF012A001D857E /* btn_ConxuGalego.png */,
+				BA0854BF14DF012A001D857E /* btn_DicionarioGalego.png */,
+				BA0854BC14DEFF2C001D857E /* GalApps_iOS_logosimbolo.png */,
 				BA1ABC5414C3392A00C55CAE /* bandera_small_cat.png */,
 				BA1ABC5514C3392A00C55CAE /* bandera_small_en.png */,
 				BA1ABC5614C3392A00C55CAE /* bandera_small_es.png */,
@@ -296,6 +315,13 @@
 				BA1ABC6214C33C4800C55CAE /* CantarellRegular.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		BA80147314DE8B9800F5E229 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		BABE404014CC64EC006F15C2 /* Files */ = {
@@ -332,7 +358,7 @@
 		BA1ABBE214C3321200C55CAE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = ninguna;
 			};
 			buildConfigurationList = BA1ABBE514C3321200C55CAE /* Build configuration list for PBXProject "TradutorGalego" */;
@@ -359,8 +385,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA1ABC0314C3321200C55CAE /* MainStoryboard_iPhone.storyboard in Resources */,
-				BA1ABC0614C3321200C55CAE /* MainStoryboard_iPad.storyboard in Resources */,
+				BA138EA614DF0BC400181A70 /* MainStoryboard_iPhone.storyboard in Resources */,
+				BA138EAC14DF0BD900181A70 /* MainStoryboard_iPad.storyboard in Resources */,
 				BA1ABC4714C334BA00C55CAE /* fondo.png in Resources */,
 				BA1ABC4B14C334BA00C55CAE /* portada.png in Resources */,
 				BA1ABC4D14C334C500C55CAE /* logo.png in Resources */,
@@ -378,9 +404,12 @@
 				BA1ABC6814C33C4800C55CAE /* styles_few_words.css in Resources */,
 				BA1ABC6914C33C4800C55CAE /* styles.css in Resources */,
 				BABE404314CC64F9006F15C2 /* verbosVolga.txt in Resources */,
-				BABE406414CC7398006F15C2 /* Localizable.strings in Resources */,
-				BABE406614CC73B9006F15C2 /* Localizable.strings in Resources */,
-				BABE406814CC73C1006F15C2 /* Localizable.strings in Resources */,
+				BA80146714DDA25900F5E229 /* Localizable.strings in Resources */,
+				BA0854BD14DEFF2C001D857E /* GalApps_iOS_logosimbolo.png in Resources */,
+				BA0854C014DF012A001D857E /* btn_ConxuGalego.png in Resources */,
+				BA0854C114DF012A001D857E /* btn_DicionarioGalego.png in Resources */,
+				BA0854C714DF05DC001D857E /* lupa.png in Resources */,
+				BA98CE4116578A4300F40FB1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,7 +422,7 @@
 			files = (
 				BA1ABBFC14C3321200C55CAE /* main.m in Sources */,
 				BA1ABC0014C3321200C55CAE /* AppDelegate.m in Sources */,
-				BA1ABC0914C3321200C55CAE /* ViewController.m in Sources */,
+				BAAD29A814D9AC8700CCEC99 /* ViewController.m in Sources */,
 				BA1ABC1414C3327400C55CAE /* HTMLNode.m in Sources */,
 				BA1ABC1514C3327400C55CAE /* HTMLParser.m in Sources */,
 				BA1ABC2D14C3329300C55CAE /* ASIAuthenticationDialog.m in Sources */,
@@ -408,38 +437,39 @@
 				BA1ABC7D14C3586000C55CAE /* TranslationViewController.m in Sources */,
 				BA1ABC8014C359EC00C55CAE /* Parser.m in Sources */,
 				BA10B7CA14CB2C7300DE04CC /* Helper.m in Sources */,
+				BA45DC5214D9A08C0014D316 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BA1ABC0114C3321200C55CAE /* MainStoryboard_iPhone.storyboard */ = {
+		BA138EA814DF0BC400181A70 /* MainStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BA1ABC0214C3321200C55CAE /* en */,
-				BABE406914CC744A006F15C2 /* es */,
-				BABE406A14CC744D006F15C2 /* gl */,
+				BA138EA714DF0BC400181A70 /* en */,
+				BA138EAA14DF0BCE00181A70 /* gl */,
+				BA138EAB14DF0BCE00181A70 /* es */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		BA1ABC0414C3321200C55CAE /* MainStoryboard_iPad.storyboard */ = {
+		BA138EAE14DF0BD900181A70 /* MainStoryboard_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BA1ABC0514C3321200C55CAE /* en */,
-				BABE406B14CC748B006F15C2 /* es */,
-				BABE406C14CC748B006F15C2 /* gl */,
+				BA138EAD14DF0BD900181A70 /* en */,
+				BA138EAF14DF0BDF00181A70 /* es */,
+				BA138EB014DF0BDF00181A70 /* gl */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
 		};
-		BABE406214CC7398006F15C2 /* Localizable.strings */ = {
+		BA80146514DDA25900F5E229 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				BABE406314CC7398006F15C2 /* en */,
-				BABE406514CC73B9006F15C2 /* es */,
-				BABE406714CC73C1006F15C2 /* gl */,
+				BA80146614DDA25900F5E229 /* en */,
+				BA80146C14DDA7E400F5E229 /* es */,
+				BA80147014DDB2A000F5E229 /* gl */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -453,7 +483,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xurxo Perez";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -473,13 +503,58 @@
 			};
 			name = Debug;
 		};
-		BA1ABC0B14C3321200C55CAE /* Release */ = {
+		BA1ABC0B14C3321200C55CAE /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xurxo Perez";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		BA1ABC0D14C3321200C55CAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TradutorGalego/TradutorGalego-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "TradutorGalego/TradutorGalego-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BA1ABC0E14C3321200C55CAE /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TradutorGalego/TradutorGalego-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
+				INFOPLIST_FILE = "TradutorGalego/TradutorGalego-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Distribution;
+		};
+		BA37B60A14E1E32400B79D1F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Xurxo Perez";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -494,19 +569,7 @@
 			};
 			name = Release;
 		};
-		BA1ABC0D14C3321200C55CAE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TradutorGalego/TradutorGalego-Prefix.pch";
-				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
-				INFOPLIST_FILE = "TradutorGalego/TradutorGalego-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		BA1ABC0E14C3321200C55CAE /* Release */ = {
+		BA37B60B14E1E32400B79D1F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -525,19 +588,21 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA1ABC0A14C3321200C55CAE /* Debug */,
-				BA1ABC0B14C3321200C55CAE /* Release */,
+				BA1ABC0B14C3321200C55CAE /* Distribution */,
+				BA37B60A14E1E32400B79D1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		BA1ABC0C14C3321200C55CAE /* Build configuration list for PBXNativeTarget "TradutorGalego" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA1ABC0D14C3321200C55CAE /* Debug */,
-				BA1ABC0E14C3321200C55CAE /* Release */,
+				BA1ABC0E14C3321200C55CAE /* Distribution */,
+				BA37B60B14E1E32400B79D1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

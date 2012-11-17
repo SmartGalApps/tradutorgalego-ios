@@ -53,7 +53,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Galician" image="bandera_small_gl.png">
+                                        <state key="normal" title="Gallego" image="bandera_small_gl.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -86,7 +86,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
                                         <inset key="titleEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
-                                        <state key="normal" title="Spanish" image="bandera_small_es.png">
+                                        <state key="normal" title="Español" image="bandera_small_es.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -103,12 +103,12 @@
                                 <rect key="frame" x="0.0" y="916" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="About" id="AC2-6j-ILX">
+                                    <barButtonItem title="Acerca de" id="AC2-6j-ILX">
                                         <connections>
                                             <segue destination="A6y-2b-sZE" kind="push" identifier="About" id="d3m-y6-Ay6"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Profile" id="7k2-F2-JcM">
+                                    <barButtonItem title="Perfil" id="7k2-F2-JcM">
                                         <connections>
                                             <action selector="showSelectProfile:" destination="XlF-D0-TGE" id="XXk-0Z-MbV"/>
                                         </connections>
@@ -146,7 +146,7 @@
                                 <rect key="frame" x="259" y="575" width="250" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="This application obtains all translations from the translator available at http://www.xunta.es/tradutor/text.do" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" adjustsFontSizeToFit="NO" minimumFontSize="10" id="hVW-9C-RoX">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Esta aplicación obtén todas as traducións do tradutor dispoñible en http://www.xunta.es/tradutor/text.do" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" adjustsFontSizeToFit="NO" minimumFontSize="10" id="hVW-9C-RoX">
                                 <rect key="frame" x="122" y="911" width="524" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -164,7 +164,7 @@
                                 <color key="textColor" white="0.89934990879999999" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Application developed by" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="WMz-vL-Mna">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aplicación desenvolvida por" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="WMz-vL-Mna">
                                 <rect key="frame" x="244" y="475" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -178,7 +178,7 @@
                                 <color key="textColor" red="0.30588235289999999" green="0.56078431370000004" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ALL THE GALICIAN LANGUAGE IN YOUR POCKET" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="dOU-lN-X7Q">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TODA A LINGUA GALEGA NO TEU PETO" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="dOU-lN-X7Q">
                                 <rect key="frame" x="226" y="644" width="315" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
@@ -240,7 +240,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Translation" id="jzg-dk-gBA"/>
+                    <navigationItem key="navigationItem" title="Tradución" id="jzg-dk-gBA"/>
                     <connections>
                         <outlet property="bottomToolbar" destination="xTw-Mi-v1Q" id="182-tu-Jac"/>
                         <outlet property="conjugateButton" destination="k3Y-t8-P10" id="LcD-zu-My7"/>

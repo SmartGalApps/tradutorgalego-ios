@@ -22,7 +22,7 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    NSString *term = [[url absoluteString] substringFromIndex:10];
+    NSString *term = [[[url absoluteString] substringFromIndex:10] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"%@", term);
     if (self.viewController == nil)
     {
